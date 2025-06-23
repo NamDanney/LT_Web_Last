@@ -1,0 +1,227 @@
+.about-banner {
+  position: relative;
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0b2447 0%, #19376d 100%);
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.about-banner__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/images/background_MD_4.jpg");
+  opacity: 0.1;
+}
+
+.about-banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+.about-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  animation: slideInDown 0.6s ease;
+}
+
+.badge-text {
+  color: #fff;
+  font-weight: 500;
+}
+
+.about-banner__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  animation: fadeIn 0.8s ease;
+}
+
+.highlight-text {
+  background: linear-gradient(120deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.about-banner__description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+}
+
+.about-banner__stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  animation: slideInUp 0.8s ease;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-item i {
+  font-size: 2rem;
+  color: #4facfe;
+}
+
+.stat-content h4 {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stat-content p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.btn-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #4facfe;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  animation: fadeIn 1.2s ease;
+}
+
+.btn-explore:hover {
+  background: #00f2fe;
+  transform: translateY(-2px);
+}
+
+.btn-explore i {
+  transition: transform 0.3s ease;
+}
+
+.btn-explore:hover i {
+  transform: translateX(4px);
+}
+
+.image-wrapper {
+  position: relative;
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+.main-image {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
+}
+
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: float 4s ease-in-out infinite;
+}
+
+.card-1 {
+  top: 20px;
+  right: -20px;
+}
+
+.card-2 {
+  bottom: 40px;
+  left: -20px;
+}
+
+.floating-card i {
+  font-size: 1.5rem;
+  color: #4facfe;
+}
+
+.about-banner__shapes .shape {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
+  top: -150px;
+  right: -150px;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
+  bottom: -100px;
+  left: -100px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 991.98px) {
+  .about-banner {
+    padding: 60px 0;
+  }
+
+  .about-banner__title {
+    font-size: 2.5rem;
+  }
+
+  .about-banner__stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .image-wrapper {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-banner__title {
+    font-size: 2rem;
+  }
+
+  .stat-item {
+    width: 100%;
+  }
+
+  .floating-card {
+    display: none;
+  }
+}

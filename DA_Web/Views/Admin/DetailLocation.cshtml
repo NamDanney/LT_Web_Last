@@ -1,0 +1,638 @@
+﻿
+@using DA_Web.Models.Enums
+@model DA_Web.Models.Location
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    ViewData["Title"] = Model.Name;
+}
+
+@section Styles {
+    <!-- Đảm bảo HTTPS cho tất cả external resources -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin="" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Local CSS files - kiểm tra đường dẫn -->
+    <link href="~/styles/Location/LocationDetailPage.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/styles/Location/WeatherSection.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="location-detail-page container mx-auto p-4">
+    <div class="main-location-content flex flex-col md:flex-row gap-8">
+        <div class="content-left flex-1">
+            <!-- Main Title -->
+            <h1 class="text-4xl font-bold mb-2">@Model.Name</h1>
+            <p class="text-lg text-gray-600 mb-4">@(Model.LocationDetail?.Subtitle ?? "Chưa có phụ đề")</p>
+
+            <!-- Intro Section -->
+            <section id="intro" class="intro mb-8">
+                <h2></i>Giới thiệu</h2>
+                @if (Model.LocationImages?.Any() == true)
+                {
+                    var mainImage = Model.LocationImages.FirstOrDefault(img => img.ImageType == LocationImageType.introduction);
+                    if (mainImage != null)
+                    {
+                        <img src="@Url.Content(mainImage.ImageUrl)" alt="Toàn cảnh" class="w-full h-64 object-cover rounded-lg mb-4"
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Error+Loading+Image'" />
+                    }
+                }
+                <p>@Model.LocationDetail?.Introduction</p>
+            </section>
+
+            <!-- Highlight Section -->
+            <section id="highlight" class="highlight-location mb-8">
+                <h2>Vì sao bạn nên ghé thăm?</h2>
+                <div class="highlight-location-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="text-xl font-medium">@Model.LocationDetail?.WhyVisitArchitectureTitle</h3>
+                        <p>@Model.LocationDetail?.WhyVisitArchitectureText</p>
+                        @if (Model.LocationImages?.Any() == true)
+                        {
+                            var mainImage = Model.LocationImages.FirstOrDefault(img => img.ImageType == LocationImageType.architecture);
+                            if (mainImage != null)
+                            {
+                                <img src="@Url.Content(mainImage.ImageUrl)" alt="Toàn cảnh" class="w-full h-64 object-cover rounded-lg mb-4"
+                                     onerror="this.src='https://via.placeholder.com/300x200?text=Error+Loading+Image'" />
+                            }
+                        }
+                    </div>
+                </div>
+                <p class="mt-4">@Model.LocationDetail?.WhyVisitCulture</p>
+            </section>
+
+            <!-- Timing Section -->
+            <section id="timing" class="timing mb-8">
+                <h2>Thời điểm lý tưởng</h2>
+                @if (Model.BestTimes?.Any() == true)
+                {
+                    <ul class="space-y-2">
+                        @foreach (var time in Model.BestTimes)
+                        {
+                            <li>@time.TimeDescription</li>
+                        }
+                    </ul>
+                }
+            </section>
+
+            <!-- Weather Section -->
+            <section id="weather" class="weather mb-8">
+                <h2>Thời tiết</h2>
+                <div class="weather-tabs">
+                    <button class="weather-tab active" onclick="showWeatherTab('current')">Hiện tại</button>
+                    <button class="weather-tab" onclick="showWeatherTab('forecast')">Dự báo 5 ngày</button>
+                </div>
+
+                <div id="currentWeather" class="weather-content">
+                    <div class="current-weather">
+                        <div class="weather-header" data-lat="@Model.Latitude" data-lon="@Model.Longitude">
+                            <div id="weatherMain" class="weather-main">
+                                <!-- Sẽ được cập nhật bởi JavaScript -->
+                            </div>
+                            <div class="weather-location">
+                                <p id="weatherDate" class="weather-date"></p>
+                                <h4>@Model.Name</h4>
+                            </div>
+                        </div>
+                        <div id="weatherDetails" class="weather-details">
+                            <!-- Sẽ được cập nhật bởi JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="forecastWeather" class="weather-content" style="display: none;">
+                    <div id="forecastContainer" class="forecast-container">
+                        <!-- Sẽ được cập nhật bởi JavaScript -->
+                    </div>
+                </div>
+
+                <div id="weatherTips" class="weather-tips">
+                    <h3>Lời khuyên khi đi du lịch</h3>
+                    <ul id="weatherTipsList">
+                        <!-- Sẽ được cập nhật bởi JavaScript -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Travel Section -->
+            <section id="travel" class="travel-details-location mb-8">
+                <h2>Thông tin di chuyển</h2>
+                @if (Model.TravelMethods?.Any() == true)
+                {
+                    <div class="travel-methods bg-gray-50 p-4 rounded-lg">
+                        <h4 class="text-xl font-medium mb-3">Phương tiện di chuyển</h4>
+                        <ul class="space-y-2">
+                            @foreach (var method in Model.TravelMethods)
+                            {
+                                <li>@method.Description</li>
+                            }
+                        </ul>
+                    </div>
+                }
+                @if (Model.TravelInfo != null)
+                {
+                    <div class="ticket-info mt-4">
+                        <h4 class="text-xl font-medium mb-2">Giá vé tham quan</h4>
+                        <p class="highlight-location">@Model.TravelInfo.TicketPrice</p>
+                        @if (!string.IsNullOrEmpty(Model.TravelInfo.Tip))
+                        {
+                            <div class="tip bg-blue-50 p-4 rounded-lg mt-4">
+                                <h4 class="text-lg font-medium mb-2">Mẹo nhỏ</h4>
+                                <p>@Model.TravelInfo.Tip</p>
+                            </div>
+                        }
+                    </div>
+                }
+            </section>
+
+            <!-- Map Section -->
+            <section id="map" class="map mb-8">
+                <h2>Vị trí</h2>
+                <div class="map-wrapper">
+                    <!-- Loading indicator -->
+                    <div class="map-loading text-center py-4" id="mapLoading">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Đang tải bản đồ...</span>
+                        </div>
+                        <p class="mt-2 text-gray-600">Đang khởi tạo bản đồ...</p>
+                    </div>
+
+                    <!-- Map container -->
+                    <div class="map-container shadow-lg rounded-lg overflow-hidden" style="display: none;" id="mapWrapper">
+                        <div id="mapContainer" style="height: 400px; width: 100%;"></div>
+                    </div>
+
+                    <!-- Map info -->
+                    <div class="map-info mt-4 bg-gray-50 p-4 rounded-lg">
+                        <div class="flex items-center justify-between flex-wrap gap-4">
+                            <div class="flex items-center">
+                                <i class="bi bi-geo-alt text-rose-500 mr-2"></i>
+                                <span class="text-gray-700">Tọa độ:</span>
+                                <span class="ml-2 font-medium">
+                                    @Model.Latitude.ToString("F6", System.Globalization.CultureInfo.InvariantCulture)°N,
+                                    @Model.Longitude.ToString("F6", System.Globalization.CultureInfo.InvariantCulture)°E
+                                </span>
+                            </div>
+                            <button id="centerMapBtn" class="btn btn-primary btn-sm" style="display: none;">
+                                <i class="bi bi-crosshair mr-1"></i>
+                                Trung tâm bản đồ
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Map error fallback -->
+                    <div id="mapError" class="alert alert-warning" style="display: none;">
+                        <i class="bi bi-exclamation-triangle mr-2"></i>
+                        Không thể tải bản đồ. Vui lòng thử lại sau.
+                    </div>
+                </div>
+            </section>
+            <!-- Gallery Section -->
+            <section id="gallery" class="gallery-location mb-8">
+                <h2>Trải nghiệm tại địa điểm</h2>
+                @if (Model.Experiences?.Any() == true)
+                {
+                    <div class="gallery-location-grid grid grid-cols-1 md:grid-cols-3 gap-4">
+                        @foreach (var exp in Model.Experiences)
+                        {
+                            <div class="gallery-item">
+                                @{
+                                    var experienceImage = Model.LocationImages?
+                                    .FirstOrDefault(img =>
+                                    img.ImageType == LocationImageType.experience &&
+                                    img.ReferenceId == exp.Id);
+
+                                    var imageUrl = experienceImage != null ?
+                                    experienceImage.ImageUrl :
+                                    "~/images/errorExp.jpg";
+                                }
+                                <img src="@Url.Content(imageUrl)"
+                                     alt="Trải nghiệm"
+                                     class="w-full h-48 object-cover rounded-lg mb-2"
+                                     onerror="this.src='~images/errorExp.jpg'" />
+                                <p>@exp.Description</p>
+                            </div>
+                        }
+                    </div>
+                }
+            </section>
+
+            <!-- Food Section -->
+            <section id="food" class="food mb-8">
+                <h2></i>Ẩm thực đặc sắc</h2>
+                @if (Model.Cuisines?.Any() == true)
+                {
+                    <div class="food-grid grid grid-cols-1 md:grid-cols-3 gap-4">
+                        @foreach (var cuisine in Model.Cuisines)
+                        {
+                            <div class="food-item">
+                                @{
+                                    var cuisineImage = Model.LocationImages?
+                                    .FirstOrDefault(img =>
+                                    img.ImageType == LocationImageType.cuisine &&
+                                    img.ReferenceId == cuisine.Id);
+
+                                    var imageUrl = cuisineImage != null ?
+                                    cuisineImage.ImageUrl :
+                                    "~/images/errorCui.jpg";
+                                }
+                                <img src="@Url.Content(imageUrl)"
+                                     alt="Ẩm thực"
+                                     class="w-full h-48 object-cover rounded-lg mb-2"
+                                     onerror="this.src='~images/errorCui.jpg''" />
+                                <p>@cuisine.Description</p>
+                            </div>
+                        }
+                    </div>
+                }
+            </section>
+
+            <!-- Tips Section -->
+            <section id="tips" class="tips mb-8">
+                <h2>Lưu ý khi tham quan</h2>
+                @if (Model.Tips?.Any() == true)
+                {
+                    <ul class="space-y-2">
+                        @foreach (var tip in Model.Tips)
+                        {
+                            <li>@tip.Description</li>
+                        }
+                    </ul>
+                }
+            </section>
+
+
+            <div class="mt-4">
+                <!-- Các button Sửa, Xóa và Quay lại -->
+                <div class="d-flex gap-2">
+                    <a asp-action="Index" class="btn btn-primary mb-4">
+                        <i class="bi bi-pencil-square"></i> Quay lại danh sách
+                    </a>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Sidebar -->
+        <div class="content-right">
+            @await Html.PartialAsync("_LocationSidebar", Model)
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <script>
+        // Global variables
+        let map = null;
+        let marker = null;
+        const WEATHER_API_KEY = '095cde61e730fd9406235de1237e97c1';
+
+        // Get coordinates with proper culture formatting
+        const LOCATION_LAT = @Model.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        const LOCATION_LNG = @Model.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        const LOCATION_NAME = @Html.Raw(Json.Serialize(Model.Name));
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM loaded, initializing components...');
+            initializeMap();
+            fetchWeatherData();
+        });
+
+        // Map initialization
+        function initializeMap() {
+            console.log('Initializing map with coordinates:', { lat: LOCATION_LAT, lng: LOCATION_LNG });
+
+            try {
+                const mapContainer = document.getElementById('mapContainer');
+                const mapLoading = document.getElementById('mapLoading');
+                const mapWrapper = document.getElementById('mapWrapper');
+                const mapError = document.getElementById('mapError');
+                const centerBtn = document.getElementById('centerMapBtn');
+
+                if (!mapContainer) {
+                    throw new Error('Map container not found');
+                }
+
+                // Validate coordinates
+                if (isNaN(LOCATION_LAT) || isNaN(LOCATION_LNG)) {
+                    throw new Error('Invalid coordinates');
+                }
+
+                // Create map
+                map = L.map('mapContainer', {
+                    center: [LOCATION_LAT, LOCATION_LNG],
+                    zoom: 15,
+                    zoomControl: false
+                });
+
+                // Add tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    maxZoom: 19
+                }).addTo(map);
+
+                // Add zoom control to top-right
+                L.control.zoom({
+                    position: 'topright'
+                }).addTo(map);
+
+                // Add scale control
+                L.control.scale({
+                    imperial: false,
+                    position: 'bottomright'
+                }).addTo(map);
+
+                // Add marker
+                marker = L.marker([LOCATION_LAT, LOCATION_LNG])
+                    .addTo(map)
+                    .bindPopup(`
+                        <div class="map-popup">
+                            <h3>${LOCATION_NAME}</h3>
+                            <p>Vị trí chính xác của địa điểm</p>
+                        </div>
+                    `)
+                    .openPopup();
+
+                // Center map button
+                centerBtn.addEventListener('click', function() {
+                    if (map && marker) {
+                        map.setView([LOCATION_LAT, LOCATION_LNG], 15, {
+                            animate: true,
+                            duration: 1
+                        });
+                        marker.openPopup();
+                    }
+                });
+
+                // Handle window resize
+                window.addEventListener('resize', function() {
+                    if (map) {
+                        setTimeout(() => map.invalidateSize(), 100);
+                    }
+                });
+
+                // Show map and hide loading
+                mapLoading.style.display = 'none';
+                mapWrapper.style.display = 'block';
+                centerBtn.style.display = 'inline-block';
+
+                console.log('Map initialized successfully');
+
+            } catch (error) {
+                console.error('Map initialization error:', error);
+                document.getElementById('mapLoading').style.display = 'none';
+                document.getElementById('mapError').style.display = 'block';
+                document.getElementById('mapError').innerHTML = `
+                    <i class="bi bi-exclamation-triangle mr-2"></i>
+                    Không thể tải bản đồ: ${error.message}
+                `;
+            }
+        }
+
+        // Weather functions
+        async function fetchWeatherData() {
+            try {
+                console.log('Fetching weather data for coordinates:', { lat: LOCATION_LAT, lon: LOCATION_LNG });
+
+                // Fetch current weather
+                const currentResponse = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${LOCATION_LAT}&lon=${LOCATION_LNG}&units=metric&lang=vi&appid=${WEATHER_API_KEY}`
+                );
+
+                if (!currentResponse.ok) {
+                    throw new Error(`Weather API error: ${currentResponse.status}`);
+                }
+
+                const currentData = await currentResponse.json();
+                updateCurrentWeather(currentData);
+
+                // Fetch forecast
+                const forecastResponse = await fetch(
+                    `https://api.openweathermap.org/data/2.5/forecast?lat=${LOCATION_LAT}&lon=${LOCATION_LNG}&units=metric&lang=vi&appid=${WEATHER_API_KEY}`
+                );
+
+                if (!forecastResponse.ok) {
+                    throw new Error(`Forecast API error: ${forecastResponse.status}`);
+                }
+
+                const forecastData = await forecastResponse.json();
+                updateForecast(forecastData);
+
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                document.querySelector('.weather-loading').innerHTML = `
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle mr-2"></i>
+                        Không thể tải dữ liệu thời tiết: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        function updateCurrentWeather(data) {
+            const weatherMain = document.getElementById('weatherMain');
+            const weatherDetails = document.getElementById('weatherDetails');
+            const weatherDate = document.getElementById('weatherDate');
+            const loadingElement = document.querySelector('.weather-loading');
+
+            if (loadingElement) {
+                loadingElement.style.display = 'none';
+            }
+
+            // Update main weather display
+            weatherMain.innerHTML = `
+                <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png"
+                     alt="${data.weather[0].description}"
+                     class="weather-icon" />
+                <div class="weather-temp">
+                    <h3>${Math.round(data.main.temp)}°C</h3>
+                    <p class="weather-desc">${data.weather[0].description}</p>
+                </div>
+            `;
+
+            // Update date
+            weatherDate.textContent = new Date(data.dt * 1000).toLocaleDateString('vi-VN', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Update details
+            weatherDetails.innerHTML = `
+                <div class="weather-detail">
+                    <span class="detail-label">Cảm giác như</span>
+                    <span class="detail-value">${Math.round(data.main.feels_like)}°C</span>
+                </div>
+                <div class="weather-detail">
+                    <span class="detail-label">Độ ẩm</span>
+                    <span class="detail-value">${data.main.humidity}%</span>
+                </div>
+                <div class="weather-detail">
+                    <span class="detail-label">Áp suất</span>
+                    <span class="detail-value">${data.main.pressure} hPa</span>
+                </div>
+                <div class="weather-detail">
+                    <span class="detail-label">Tầm nhìn</span>
+                    <span class="detail-value">${(data.visibility / 1000).toFixed(1)} km</span>
+                </div>
+                <div class="weather-detail">
+                    <span class="detail-label">Gió</span>
+                    <span class="detail-value">${Math.round(data.wind.speed * 3.6)} km/h ${getWindDirection(data.wind.deg)}</span>
+                </div>
+                <div class="weather-detail">
+                    <span class="detail-label">Mây</span>
+                    <span class="detail-value">${data.clouds?.all || 0}%</span>
+                </div>
+                <div class="weather-detail">
+                    <span class="detail-label">Mặt trời mọc</span>
+                    <span class="detail-value">${formatTime(data.sys.sunrise)}</span>
+                </div>
+                <div class="weather-detail">
+                    <span class="detail-label">Mặt trời lặn</span>
+                    <span class="detail-value">${formatTime(data.sys.sunset)}</span>
+                </div>
+            `;
+
+            updateWeatherTips(data);
+        }
+
+        function updateForecast(data) {
+            const forecastContainer = document.getElementById('forecastContainer');
+            const dailyForecasts = {};
+
+            // Group forecast data by day
+            data.list.forEach(item => {
+                const date = new Date(item.dt * 1000).toLocaleDateString('vi-VN');
+                if (!dailyForecasts[date]) {
+                    dailyForecasts[date] = [];
+                }
+                dailyForecasts[date].push(item);
+            });
+
+            // Create forecast cards
+            forecastContainer.innerHTML = Object.entries(dailyForecasts)
+                .slice(0, 5)
+                .map(([date, items]) => {
+                    const dayData = items[0];
+                    return `
+                        <div class="forecast-day">
+                            <h3 class="forecast-date">${date}</h3>
+                            <div class="forecast-temps">
+                                <span class="temp-max">${Math.round(Math.max(...items.map(item => item.main.temp_max)))}°</span>
+                                <span class="temp-min">${Math.round(Math.min(...items.map(item => item.main.temp_min)))}°</span>
+                            </div>
+                            <img src="https://openweathermap.org/img/w/${dayData.weather[0].icon}.png"
+                                 alt="${dayData.weather[0].description}"
+                                 class="forecast-icon" />
+                            <p class="forecast-desc">${dayData.weather[0].description}</p>
+                            <div class="forecast-details">
+                                <div class="forecast-detail">
+                                    <span class="detail-icon">💧</span>
+                                    <span class="detail-value">
+                                        ${Math.round(items.reduce((sum, item) => sum + item.main.humidity, 0) / items.length)}%
+                                    </span>
+                                </div>
+                                <div class="forecast-detail">
+                                    <span class="detail-icon">💨</span>
+                                    <span class="detail-value">
+                                        ${Math.round(items.reduce((sum, item) => sum + item.wind.speed, 0) / items.length * 3.6)} km/h
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                })
+                .join('');
+        }
+
+        function updateWeatherTips(data) {
+            const tipsList = document.getElementById('weatherTipsList');
+            const tips = [];
+
+            if (data.main.temp > 30) {
+                tips.push('Nhiệt độ cao, hãy mang theo nước uống và kem chống nắng.');
+            }
+            if (data.main.temp < 18) {
+                tips.push('Thời tiết khá lạnh, nên mang theo áo ấm.');
+            }
+            if (data.weather[0].main === 'Rain') {
+                tips.push('Có mưa, hãy mang theo ô hoặc áo mưa.');
+            }
+            if (data.wind.speed * 3.6 > 20) {
+                tips.push('Gió khá mạnh, nên cẩn thận khi tham quan khu vực ngoài trời.');
+            }
+            if (data.main.humidity > 80) {
+                tips.push('Độ ẩm cao, mang theo khăn tay và nước uống.');
+            }
+            if (tips.length === 0) {
+                tips.push('Thời tiết thuận lợi cho việc tham quan.');
+            }
+
+            tipsList.innerHTML = tips.map(tip => `<li><i class="bi bi-check-circle text-green-500 mr-2"></i>${tip}</li>`).join('');
+        }
+
+        // Helper functions
+        function formatTime(timestamp) {
+            return new Date(timestamp * 1000).toLocaleTimeString('vi-VN', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function getWindDirection(degrees) {
+            const directions = ["Bắc", "Đông Bắc", "Đông", "Đông Nam", "Nam", "Tây Nam", "Tây", "Tây Bắc"];
+            return directions[Math.round(degrees / 45) % 8];
+        }
+
+        // Weather tab functionality
+        function showWeatherTab(tabName) {
+            const tabs = document.querySelectorAll('.weather-tab');
+            const contents = document.querySelectorAll('.weather-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.style.display = 'none');
+
+            event.target.classList.add('active');
+            document.getElementById(tabName + 'Weather').style.display = 'block';
+
+            if (tabName === 'forecast' && document.getElementById('forecastContainer').innerHTML.includes('spinner-border')) {
+                fetchWeatherData(); // Reload forecast if not loaded
+            }
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Error handling for images
+        function handleImageError(img) {
+            img.onerror = null; // Prevent infinite loop
+            img.src = 'https://via.placeholder.com/400x300?text=Không+thể+tải+ảnh';
+            img.alt = 'Hình ảnh không khả dụng';
+        }
+
+        // Add error handling to all images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    handleImageError(this);
+                });
+            });
+        });
+    </script>
+}

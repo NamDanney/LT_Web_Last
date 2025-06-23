@@ -1,0 +1,736 @@
+﻿
+
+@model DA_Web.ViewModels.Locations.LocationCreateViewModel
+@{
+    ViewData["Title"] = "Thêm địa điểm mới";
+}
+
+<div class="mgt-location">
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold text-primary">
+                <i class="bi bi-plus-circle-fill me-2"></i>Thêm địa điểm mới
+            </h2>
+            <a asp-action="Index" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left"></i> Quay lại danh sách
+            </a>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger alert alert-danger" role="alert"></div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-info-circle me-2"></i>
+                                Thông tin cơ bản
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Name" class="form-label fw-bold">Tên địa điểm</label>
+                                    <input asp-for="Name" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Type" class="form-label fw-bold">Loại địa điểm</label>
+                                    <select asp-for="Type" class="form-select form-select-lg">
+                                        <option value="">Chọn loại địa điểm</option>
+                                        <option value="Thiên nhiên">Thiên nhiên</option>
+                                        <option value="Bãi biển">Bãi biển</option>
+                                        <option value="Văn hóa">Văn hóa</option>
+                                        <option value="Di tích lịch sử">Di tích lịch sử</option>
+                                    </select>
+                                    <span asp-validation-for="Type" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Description" class="form-label fw-bold">Mô tả ngắn</label>
+                                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Latitude" class="form-label fw-bold">Vĩ độ</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-geo"></i></span>
+                                        <input asp-for="Latitude" class="form-control" type="number" step="any" />
+                                    </div>
+                                    <span asp-validation-for="Latitude" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Longitude" class="form-label fw-bold">Kinh độ</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-geo"></i></span>
+                                        <input asp-for="Longitude" class="form-control" type="number" step="any" />
+                                    </div>
+                                    <span asp-validation-for="Longitude" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-journal-richtext me-2"></i>
+                                Chi tiết địa điểm
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group mb-3">
+                                <label asp-for="Subtitle" class="form-label fw-bold">Phụ đề</label>
+                                <input asp-for="Subtitle" class="form-control" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Introduction" class="form-label fw-bold">Giới thiệu</label>
+                                <textarea asp-for="Introduction" class="form-control" rows="4"></textarea>
+                            </div>
+                            
+                            <!-- Thêm ảnh giới thiệu -->
+                            <div class="form-group mb-4">
+                                <label class="form-label fw-bold">Ảnh giới thiệu</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-image"></i></span>
+                                    <input type="file" name="IntroductionImage" id="introductionImage" class="form-control" accept="image/*" />
+                                    <button class="btn btn-outline-info" type="button" id="introductionImageInfo" data-bs-toggle="tooltip" title="Hình ảnh này sẽ được hiển thị lớn ở trang chi tiết của địa điểm trong phần giới thiệu">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
+                                <small class="text-muted">Hình ảnh sẽ hiển thị ở phần giới thiệu địa điểm</small>
+                                
+                                <div class="preview-container mt-2" id="introPreviewContainer" style="display:none;">
+                                    <div class="card">
+                                        <div class="card-header bg-light py-1">Xem trước</div>
+                                        <div class="card-body p-0 text-center">
+                                            <img src="#" alt="Preview" class="img-preview img-fluid" style="max-height: 200px; object-fit: contain;" />
+                                        </div>
+                                        <div class="card-footer p-2 text-center">
+                                            <button type="button" class="btn btn-sm btn-danger remove-preview">
+                                                <i class="bi bi-x"></i> Xóa ảnh
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="WhyVisitArchitectureTitle" class="form-label fw-bold">Kiến trúc - Tiêu đề</label>
+                                    <input asp-for="WhyVisitArchitectureTitle" class="form-control" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="WhyVisitCulture" class="form-label fw-bold">Văn hóa</label>
+                                    <textarea asp-for="WhyVisitCulture" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label asp-for="WhyVisitArchitectureText" class="form-label fw-bold">Kiến trúc - Mô tả</label>
+                                <textarea asp-for="WhyVisitArchitectureText" class="form-control" rows="4"></textarea>
+                            </div>
+                            
+                            <!-- Thêm ảnh kiến trúc -->
+                            <div class="form-group mb-3">
+                                <label class="form-label fw-bold">Ảnh kiến trúc</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-image"></i></span>
+                                    <input type="file" name="ArchitectureImage" id="architectureImage" class="form-control" accept="image/*" />
+                                    <button class="btn btn-outline-info" type="button" id="architectureImageInfo" data-bs-toggle="tooltip" title="Hình ảnh này sẽ được hiển thị lớn trong phần kiến trúc của địa điểm">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
+                                <small class="text-muted">Hình ảnh sẽ hiển thị ở phần kiến trúc</small>
+                                
+                                <div class="preview-container mt-2" id="archPreviewContainer" style="display:none;">
+                                    <div class="card">
+                                        <div class="card-header bg-light py-1">Xem trước</div>
+                                        <div class="card-body p-0 text-center">
+                                            <img src="#" alt="Preview" class="img-preview img-fluid" style="max-height: 200px; object-fit: contain;" />
+                                        </div>
+                                        <div class="card-footer p-2 text-center">
+                                            <button type="button" class="btn btn-sm btn-danger remove-preview">
+                                                <i class="bi bi-x"></i> Xóa ảnh
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-ticket-perforated me-2"></i>
+                                Thông tin du lịch
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="TicketPrice" class="form-label fw-bold">Giá vé tham quan</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+                                        <input asp-for="TicketPrice" class="form-control" placeholder="VD: Miễn phí hoặc 50.000 VNĐ/người" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="Tip" class="form-label fw-bold">Lưu ý khi tham quan</label>
+                                    <textarea asp-for="Tip" class="form-control" rows="3" placeholder="Các lưu ý cho du khách khi đến tham quan"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-clock me-2"></i>
+                                Thời điểm tốt nhất để tham quan
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="bestTimesContainer" class="mb-3">
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
+                                    <input type="text" name="BestTimes[0]" class="form-control" placeholder="VD: Sáng sớm (5h-8h)" />
+                                    <button type="button" class="btn btn-outline-danger remove-item" disabled>
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-success" id="addBestTime">
+                                <i class="bi bi-plus-lg"></i> Thêm thời điểm
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-car-front me-2"></i>
+                                Phương thức di chuyển
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="text-primary fw-bold">Từ Tuy Hòa</h6>
+                            <div id="fromTuyHoaContainer" class="mb-3">
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text"><i class="bi bi-car-front"></i></span>
+                                    <input type="text" name="TravelMethodsFromTuyHoa[0]" class="form-control" placeholder="VD: Xe máy (15 phút)" />
+                                    <button type="button" class="btn btn-outline-danger remove-item" disabled>
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-success mb-3" id="addFromTuyHoa">
+                                <i class="bi bi-plus-lg"></i> Thêm phương thức
+                            </button>
+
+                            <h6 class="text-primary fw-bold">Từ nơi khác</h6>
+                            <div id="fromElsewhereContainer" class="mb-3">
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text"><i class="bi bi-airplane"></i></span>
+                                    <input type="text" name="TravelMethodsFromElsewhere[0]" class="form-control" placeholder="VD: Máy bay (1 giờ)" />
+                                    <button type="button" class="btn btn-outline-danger remove-item" disabled>
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-success" id="addFromElsewhere">
+                                <i class="bi bi-plus-lg"></i> Thêm phương thức
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-stars me-2"></i>
+                                Trải nghiệm
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="experiencesContainer">
+                                <div class="experience-item border p-3 mb-3 rounded shadow-sm">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label fw-bold">Nội dung trải nghiệm</label>
+                                        <textarea name="Experiences[0]" class="form-control" rows="2" placeholder="Mô tả trải nghiệm"></textarea>
+                                    </div>
+                                    <!-- SỬA: THÊM INDEX VÀO HTML BAN ĐẦU -->
+                                    <div class="form-group mb-3">
+                                        <label class="form-label fw-bold">Ảnh trải nghiệm</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-image"></i></span>
+                                            <!-- SỬA: THÊM INDEX [0] -->
+                                            <input type="file" name="ExperienceImages" class="form-control experience-image" accept="image/*" data-index="0" />
+                                        </div>
+                                        <small class="text-muted">Hình ảnh minh họa cho trải nghiệm này</small>
+                                        <div class="preview-container mt-2 experience-preview-0" style="display:none;">
+                                            <div class="card">
+                                                <div class="card-header bg-light py-1">Xem trước</div>
+                                                <div class="card-body p-0 text-center">
+                                                    <img src="#" alt="Preview" class="img-preview img-fluid" style="max-height: 200px; object-fit: contain;" />
+                                                </div>
+                                                <div class="card-footer p-2 text-center">
+                                                    <button type="button" class="btn btn-sm btn-danger remove-preview" data-target="exp-0">
+                                                        <i class="bi bi-x"></i> Xóa ảnh
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-danger remove-experience" disabled>
+                                        <i class="bi bi-trash"></i> Xóa trải nghiệm
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-success" id="addExperience">
+                                <i class="bi bi-plus-lg"></i> Thêm trải nghiệm
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-cup-hot me-2"></i>
+                                Ẩm thực
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="cuisinesContainer">
+                                <div class="cuisine-item border p-3 mb-3 rounded shadow-sm">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label fw-bold">Nội dung ẩm thực</label>
+                                        <textarea name="Cuisines[0]" class="form-control" rows="2" placeholder="Mô tả món ăn"></textarea>
+                                    </div>
+                                    <!-- SỬA: THÊM INDEX VÀO HTML BAN ĐẦU -->
+                                    <div class="form-group mb-3">
+                                        <label class="form-label fw-bold">Ảnh ẩm thực</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-image"></i></span>
+                                            <!-- SỬA: THÊM INDEX [0] -->
+                                            <input type="file" name="CuisineImages" class="form-control cuisine-image" accept="image/*" data-index="0" />
+                                        </div>
+                                        <small class="text-muted">Hình ảnh minh họa cho món ăn này</small>
+                                        <div class="preview-container mt-2 cuisine-preview-0" style="display:none;">
+                                            <div class="card">
+                                                <div class="card-header bg-light py-1">Xem trước</div>
+                                                <div class="card-body p-0 text-center">
+                                                    <img src="#" alt="Preview" class="img-preview img-fluid" style="max-height: 200px; object-fit: contain;" />
+                                                </div>
+                                                <div class="card-footer p-2 text-center">
+                                                    <button type="button" class="btn btn-sm btn-danger remove-preview" data-target="cui-0">
+                                                        <i class="bi bi-x"></i> Xóa ảnh
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-danger remove-cuisine" disabled>
+                                        <i class="bi bi-trash"></i> Xóa ẩm thực
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-success" id="addCuisine">
+                                <i class="bi bi-plus-lg"></i> Thêm ẩm thực
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                Lưu ý
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="tipsContainer" class="mb-3">
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
+                                    <input type="text" name="Tips[0]" class="form-control" placeholder="VD: Mang theo nước uống, kem chống nắng" />
+                                    <button type="button" class="btn btn-outline-danger remove-item" disabled>
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-success" id="addTip">
+                                <i class="bi bi-plus-lg"></i> Thêm lưu ý
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">
+                                        <i class="bi bi-geo-alt me-2"></i>
+                                        Địa điểm lân cận
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <select asp-items="ViewBag.NearbyLocations" asp-for="NearbyLocationIds" class="form-select" multiple size="8">
+                                        </select>
+                                        <small class="text-muted d-block mt-1">
+                                            <i class="bi bi-info-circle"></i> Giữ Ctrl để chọn nhiều địa điểm
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">
+                                        <i class="bi bi-building me-2"></i>
+                                        Khách sạn gần đó
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <select asp-items="ViewBag.Hotels" asp-for="HotelIds" class="form-select" multiple size="8">
+                                        </select>
+                                        <small class="text-muted d-block mt-1">
+                                            <i class="bi bi-info-circle"></i> Giữ Ctrl để chọn nhiều khách sạn
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4 d-flex gap-2 justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                            <i class="bi bi-plus-circle"></i> Tạo địa điểm
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary btn-lg px-4">
+                            <i class="bi bi-arrow-left"></i> Quay lại
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        // JavaScript để thêm/xóa các mục động
+        $(document).ready(function() {
+            // Khởi tạo Bootstrap tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            
+            // Hàm tạo nút xóa
+            function setupRemoveButtons() {
+                $('.remove-item').off('click').on('click', function() {
+                    $(this).closest('.input-group').remove();
+                    updateButtonStates();
+                });
+
+                $('.remove-experience').off('click').on('click', function() {
+                    $(this).closest('.experience-item').remove();
+                    updateButtonStates();
+                });
+
+                $('.remove-cuisine').off('click').on('click', function() {
+                    $(this).closest('.cuisine-item').remove();
+                    updateButtonStates();
+                });
+
+                updateButtonStates();
+            }
+
+            // Setup image preview for all file inputs
+            function setupImagePreviews() {
+                // For introduction image
+                $('#introductionImage').off('change').on('change', function(e) {
+                    const previewContainer = $('#introPreviewContainer');
+                    const imgPreview = previewContainer.find('.img-preview');
+
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            imgPreview.attr('src', e.target.result);
+                            previewContainer.show();
+                        }
+
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                // For architecture image
+                $('#architectureImage').off('change').on('change', function(e) {
+                    const previewContainer = $('#archPreviewContainer');
+                    const imgPreview = previewContainer.find('.img-preview');
+
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            imgPreview.attr('src', e.target.result);
+                            previewContainer.show();
+                        }
+
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                // For experience images
+                $('.experience-image').off('change').on('change', function(e) {
+                    const index = $(this).data('index');
+                    const previewContainer = $(`.experience-preview-${index}`);
+                    const imgPreview = previewContainer.find('.img-preview');
+
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            imgPreview.attr('src', e.target.result);
+                            previewContainer.show();
+                        }
+
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                // For cuisine images
+                $('.cuisine-image').off('change').on('change', function(e) {
+                    const index = $(this).data('index');
+                    const previewContainer = $(`.cuisine-preview-${index}`);
+                    const imgPreview = previewContainer.find('.img-preview');
+
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            imgPreview.attr('src', e.target.result);
+                            previewContainer.show();
+                        }
+
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                // Remove preview button action
+                $('.remove-preview').off('click').on('click', function() {
+                    const previewContainer = $(this).closest('.preview-container');
+                    const fileInput = previewContainer.parent().find('input[type="file"]');
+                    const targetId = $(this).data('target');
+
+                    // Clear the file input
+                    fileInput.val('');
+                    
+                    // Hide the preview
+                    previewContainer.hide();
+                });
+            }
+
+            // Cập nhật trạng thái nút xóa (disable nếu chỉ còn 1 mục)
+            function updateButtonStates() {
+                $('#bestTimesContainer .remove-item').prop('disabled',
+                    $('#bestTimesContainer .input-group').length <= 1);
+
+                $('#fromTuyHoaContainer .remove-item').prop('disabled',
+                    $('#fromTuyHoaContainer .input-group').length <= 1);
+
+                $('#fromElsewhereContainer .remove-item').prop('disabled',
+                    $('#fromElsewhereContainer .input-group').length <= 1);
+
+                $('#tipsContainer .remove-item').prop('disabled',
+                    $('#tipsContainer .input-group').length <= 1);
+
+                $('#experiencesContainer .remove-experience').prop('disabled',
+                    $('#experiencesContainer .experience-item').length <= 1);
+
+                $('#cuisinesContainer .remove-cuisine').prop('disabled',
+                    $('#cuisinesContainer .cuisine-item').length <= 1);
+
+                // Setup image previews for new elements
+                setupImagePreviews();
+            }
+
+            // Thêm thời điểm tốt nhất
+            $('#addBestTime').on('click', function() {
+                const count = $('#bestTimesContainer .input-group').length;
+                const newItem = `
+                    <div class="input-group mb-2">
+                        <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
+                        <input type="text" name="BestTimes[${count}]" class="form-control" placeholder="VD: Sáng sớm (5h-8h)" />
+                        <button type="button" class="btn btn-outline-danger remove-item">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                `;
+                $('#bestTimesContainer').append(newItem);
+                setupRemoveButtons();
+            });
+
+            // Thêm phương thức từ Tuy Hòa
+            $('#addFromTuyHoa').on('click', function() {
+                const count = $('#fromTuyHoaContainer .input-group').length;
+                const newItem = `
+                    <div class="input-group mb-2">
+                        <span class="input-group-text"><i class="bi bi-car-front"></i></span>
+                        <input type="text" name="TravelMethodsFromTuyHoa[${count}]" class="form-control" placeholder="VD: Xe máy (15 phút)" />
+                        <button type="button" class="btn btn-outline-danger remove-item">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                `;
+                $('#fromTuyHoaContainer').append(newItem);
+                setupRemoveButtons();
+            });
+
+            // Thêm phương thức từ nơi khác
+            $('#addFromElsewhere').on('click', function() {
+                const count = $('#fromElsewhereContainer .input-group').length;
+                const newItem = `
+                    <div class="input-group mb-2">
+                        <span class="input-group-text"><i class="bi bi-airplane"></i></span>
+                        <input type="text" name="TravelMethodsFromElsewhere[${count}]" class="form-control" placeholder="VD: Máy bay (1 giờ)" />
+                        <button type="button" class="btn btn-outline-danger remove-item">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                `;
+                $('#fromElsewhereContainer').append(newItem);
+                setupRemoveButtons();
+            });
+
+            // Thêm trải nghiệm
+            $('#addExperience').on('click', function() {
+                const count = $('#experiencesContainer .experience-item').length;
+                const newItem = `
+                    <div class="experience-item border p-3 mb-3 rounded shadow-sm">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Nội dung trải nghiệm</label>
+                            <textarea name="Experiences[${count}]" class="form-control" rows="2" placeholder="Mô tả trải nghiệm"></textarea>
+                        </div>
+                        <!-- Thêm ảnh cho trải nghiệm -->
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Ảnh trải nghiệm</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-image"></i></span>
+                                <input type="file" name="ExperienceImages[${count}]" class="form-control experience-image" accept="image/*" data-index="${count}" />
+                            </div>
+                            <small class="text-muted">Hình ảnh minh họa cho trải nghiệm này</small>
+                            <div class="preview-container mt-2 experience-preview-${count}" style="display:none;">
+                                <div class="card">
+                                    <div class="card-header bg-light py-1">Xem trước</div>
+                                    <div class="card-body p-0 text-center">
+                                        <img src="#" alt="Preview" class="img-preview img-fluid" style="max-height: 200px; object-fit: contain;" />
+                                    </div>
+                                    <div class="card-footer p-2 text-center">
+                                        <button type="button" class="btn btn-sm btn-danger remove-preview" data-target="exp-${count}">
+                                            <i class="bi bi-x"></i> Xóa ảnh
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-danger remove-experience">
+                            <i class="bi bi-trash"></i> Xóa trải nghiệm
+                        </button>
+                    </div>
+                `;
+                $('#experiencesContainer').append(newItem);
+                setupRemoveButtons();
+            });
+
+            // Thêm ẩm thực
+            $('#addCuisine').on('click', function() {
+                const count = $('#cuisinesContainer .cuisine-item').length;
+                const newItem = `
+                    <div class="cuisine-item border p-3 mb-3 rounded shadow-sm">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Nội dung ẩm thực</label>
+                            <textarea name="Cuisines[${count}]" class="form-control" rows="2" placeholder="Mô tả món ăn"></textarea>
+                        </div>
+                        <!-- Thêm ảnh cho ẩm thực -->
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Ảnh ẩm thực</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-image"></i></span>
+                                <input type="file" name="CuisineImages[${count}]" class="form-control cuisine-image" accept="image/*" data-index="${count}" />
+                            </div>
+                            <small class="text-muted">Hình ảnh minh họa cho món ăn này</small>
+                            <div class="preview-container mt-2 cuisine-preview-${count}" style="display:none;">
+                                <div class="card">
+                                    <div class="card-header bg-light py-1">Xem trước</div>
+                                    <div class="card-body p-0 text-center">
+                                        <img src="#" alt="Preview" class="img-preview img-fluid" style="max-height: 200px; object-fit: contain;" />
+                                    </div>
+                                    <div class="card-footer p-2 text-center">
+                                        <button type="button" class="btn btn-sm btn-danger remove-preview" data-target="cui-${count}">
+                                            <i class="bi bi-x"></i> Xóa ảnh
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-danger remove-cuisine">
+                            <i class="bi bi-trash"></i> Xóa ẩm thực
+                        </button>
+                    </div>
+                `;
+                $('#cuisinesContainer').append(newItem);
+                setupRemoveButtons();
+            });
+
+            // Thêm lưu ý
+            $('#addTip').on('click', function() {
+                const count = $('#tipsContainer .input-group').length;
+                const newItem = `
+                    <div class="input-group mb-2">
+                        <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
+                        <input type="text" name="Tips[${count}]" class="form-control" placeholder="VD: Mang theo nước uống, kem chống nắng" />
+                        <button type="button" class="btn btn-outline-danger remove-item">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                `;
+                $('#tipsContainer').append(newItem);
+                setupRemoveButtons();
+            });
+
+            // Xử lý form submit để hiển thị thông báo loading
+            $('form').on('submit', function() {
+                // Hiển thị thông báo loading
+                $('body').append('<div id="loadingOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 9999; display: flex; justify-content: center; align-items: center;"><div class="spinner-border text-light" role="status"><span class="visually-hidden">Đang xử lý...</span></div></div>');
+
+                // Disable nút submit để tránh submit nhiều lần
+                $(this).find('button[type="submit"]').prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang xử lý...');
+
+                return true; // Cho phép form submit
+            });
+
+            // Khởi tạo ban đầu
+            setupRemoveButtons();
+            setupImagePreviews();
+
+            // Hiển thị thông báo khi xảy ra lỗi validation
+            if ($('.text-danger:visible').length > 0) {
+                $('html, body').animate({
+                    scrollTop: $('.text-danger:visible').first().offset().top - 100
+                }, 500);
+            }
+        });
+    </script>
+}
+

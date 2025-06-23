@@ -1,0 +1,35 @@
+@* @using Microsoft.AspNetCore.Identity
+@inject SignInManager<DA_Web.Models.ApplicationUser> SignInManager
+@inject UserManager<DA_Web.Models.ApplicationUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="@(user?.Avatar ?? "/uploads/avatars/default-avatar.png")" alt="Avatar" class="avatar-sm rounded-circle me-1" />
+            @user.FullName
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Tài khoản của tôi</a></li>
+            <li><a class="dropdown-item" asp-controller="Plans" asp-action="MyPlans">Lịch trình của tôi</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button  type="submit" class="nav-link btn btn-link text-dark w-100 text-start">Đăng xuất</button>
+                </form>
+            </li>
+        </ul>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Đăng Ký</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Đăng Nhập</a>
+    </li>
+}
+</ul>  *@

@@ -1,0 +1,352 @@
+﻿@{
+    ViewData["Title"] = "Về Chúng Tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Đảm bảo bạn có Layout này
+}
+
+<!-- Liên kết đến các tệp CSS -->
+<link rel="stylesheet" href="~/styles/About/AboutBanner.css" />
+<link rel="stylesheet" href="~/styles/About/AboutMission.css" />
+<link rel="stylesheet" href="~/styles/About/AboutFeatures.css" />
+<link rel="stylesheet" href="~/styles/About/AboutTeam.css" />
+<link rel="stylesheet" href="~/styles/About/AboutPartners.css" />
+
+<!-- Font Awesome hoặc Bootstrap Icons nếu cần -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<div class="about-main">
+
+    <!-- ======================= AboutBanner Section ======================= -->
+    <section class="about-banner">
+        <div class="about-banner__overlay"></div>
+        <div class="container position-relative">
+            <div class="about-banner__content">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 about-banner__text-content">
+                        <div class="about-banner__badge">
+                            <span class="badge-text">Khám phá Phú Yên</span>
+                            <i class="bi bi-compass-fill"></i>
+                        </div>
+
+                        <h1 class="about-banner__title">
+                            Trải Nghiệm Vẻ Đẹp
+                            <span class="highlight-text"> Xứ Nẫu</span>
+                        </h1>
+
+                        <p class="about-banner__description">
+                            Chào mừng bạn đến với Phú Yên Travel - nơi những hành trình đáng nhớ bắt đầu.
+                            Chúng tôi tự hào mang đến cho bạn những trải nghiệm du lịch độc đáo và đáng nhớ nhất.
+                        </p>
+
+                        <div class="about-banner__stats">
+                            <div class="stat-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <div class="stat-content">
+                                    <h4>50+</h4>
+                                    <p>Điểm đến</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-people"></i>
+                                <div class="stat-content">
+                                    <h4>1000+</h4>
+                                    <p>Khách hàng</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-star"></i>
+                                <div class="stat-content">
+                                    <h4>98%</h4>
+                                    <p>Đánh giá tốt</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-banner__cta">
+                            <a href="#about-mission" class="btn-explore">
+                                Khám phá ngay
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 about-banner__image-content">
+                        <div class="image-wrapper">
+                            <img src="~/images/background_BX_2.jpg" alt="Phú Yên cảnh đẹp" class="main-image" />
+                            <div class="floating-card card-1">
+                                <i class="bi bi-camera"></i>
+                                <span>Điểm check-in tuyệt đẹp</span>
+                            </div>
+                            <div class="floating-card card-2">
+                                <i class="bi bi-heart"></i>
+                                <span>Trải nghiệm độc đáo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-banner__shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- ======================= Mission Section ======================= -->
+    <section id="about-mission" class="mission-section">
+        <div class="container">
+            <div class="mission-wrapper">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="mission-card primary">
+                            <div class="card-icon">
+                                <i class="bi bi-bookmark-star"></i>
+                            </div>
+                            <h3>Sứ mệnh</h3>
+                            <p>
+                                Mang đến trải nghiệm du lịch tuyệt vời, kết nối du khách với vẻ đẹp
+                                thiên nhiên, văn hóa và con người Phú Yên.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mission-card vision">
+                            <div class="card-icon">
+                                <i class="bi bi-eye"></i>
+                            </div>
+                            <h3>Tầm nhìn</h3>
+                            <p>
+                                Trở thành điểm đến lý tưởng cho những ai yêu thích khám phá vẻ đẹp
+                                hoang sơ và văn hóa độc đáo của Phú Yên.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mission-card values">
+                            <div class="card-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <h3>Giá trị cốt lõi</h3>
+                            <p>
+                                Chất lượng - Tận tâm - Sáng tạo - Trách nhiệm với cộng đồng và
+                                môi trường.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="principles-section mt-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <img src="~/images/background_BX_2.jpg"
+                                 alt="Phú Yên Travel Principles"
+                                 class="principles-image" />
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="principles-content">
+                                <h2>Nguyên tắc hoạt động</h2>
+                                <div class="principles-list">
+                                    <div class="principle-item">
+                                        <i class="bi bi-check-circle"></i>
+                                        <div>
+                                            <h4>Chất lượng dịch vụ</h4>
+                                            <p>Cam kết mang đến trải nghiệm du lịch chất lượng cao</p>
+                                        </div>
+                                    </div>
+                                    <div class="principle-item">
+                                        <i class="bi bi-people"></i>
+                                        <div>
+                                            <h4>Hướng đến khách hàng</h4>
+                                            <p>Luôn lắng nghe và đáp ứng nhu cầu của khách hàng</p>
+                                        </div>
+                                    </div>
+                                    <div class="principle-item">
+                                        <i class="bi bi-globe"></i>
+                                        <div>
+                                            <h4>Du lịch bền vững</h4>
+                                            <p>Phát triển du lịch gắn với bảo vệ môi trường</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Features Section ======================= -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tại sao chọn chúng tôi</div>
+                <h2 class="section-title">Điểm Nổi Bật Của Phú Yên Travel</h2>
+                <p class="section-subtitle">
+                    Chúng tôi cam kết mang đến những trải nghiệm du lịch tuyệt vời nhất tại Phú Yên
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" style="--accent-color: #0072bb">
+                    <div class="feature-icon"><i class="bi bi-compass"></i></div>
+                    <div class="feature-content">
+                        <h3>Khám Phá Đa Dạng</h3>
+                        <p>Từ những bãi biển hoang sơ đến những ngọn núi hùng vĩ, Phú Yên mang đến trải nghiệm du lịch đa dạng và độc đáo.</p>
+                    </div>
+                    <div class="feature-number">01</div>
+                </div>
+                <div class="feature-card" style="--accent-color: #00b4d8">
+                    <div class="feature-icon"><i class="bi bi-stars"></i></div>
+                    <div class="feature-content">
+                        <h3>Trải Nghiệm Độc Đáo</h3>
+                        <p>Check-in những địa điểm nổi tiếng, thưởng thức ẩm thực đặc sắc và tham gia các hoạt động văn hóa địa phương.</p>
+                    </div>
+                    <div class="feature-number">02</div>
+                </div>
+                <div class="feature-card" style="--accent-color: #ff6b6b">
+                    <div class="feature-icon"><i class="bi bi-heart"></i></div>
+                    <div class="feature-content">
+                        <h3>Dịch Vụ Tận Tâm</h3>
+                        <p>Đội ngũ nhân viên chuyên nghiệp, nhiệt tình sẵn sàng hỗ trợ bạn 24/7 trong suốt hành trình.</p>
+                    </div>
+                    <div class="feature-number">03</div>
+                </div>
+                <div class="feature-card" style="--accent-color: #38b000">
+                    <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                    <div class="feature-content">
+                        <h3>An Toàn & Tin Cậy</h3>
+                        <p>Cam kết đảm bảo an toàn cho du khách và mang đến những trải nghiệm du lịch chất lượng nhất.</p>
+                    </div>
+                    <div class="feature-number">04</div>
+                </div>
+            </div>
+            <div class="features-stats">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Khách Hàng Hài Lòng</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Điểm Đến Hấp Dẫn</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Đánh Giá Tích Cực</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Team Section ======================= -->
+    <section class="aboutteam-modern-section">
+        <div class="container">
+            <div class="aboutteam-header text-center">
+                <span class="aboutteam-badge">Đội ngũ sáng tạo</span>
+                <h2 class="aboutteam-title">
+                    Gặp gỡ <span class="highlight">Team Phú Yên Travel</span>
+                </h2>
+                <p class="aboutteam-desc">
+                    Đội ngũ trẻ trung, nhiệt huyết và đầy sáng tạo – luôn đồng hành cùng bạn trên mọi hành trình.
+                </p>
+            </div>
+            <div class="aboutteam-grid">
+                <div class="aboutteam-card">
+                    <div class="aboutteam-avatar-wrap">
+                        <img src="~/images/dev3.jpg" alt="Nguyễn Thành Nam" class="aboutteam-avatar" />
+                        <div class="aboutteam-socials">
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="aboutteam-info">
+                        <h3 class="aboutteam-name">Nguyễn Thành Nam</h3>
+                        <span class="aboutteam-role">Developer, designer</span>
+                    </div>
+                </div>
+                <div class="aboutteam-card">
+                    <div class="aboutteam-avatar-wrap">
+                        <img src="~/images/dev1.jpg" alt="Lê Minh Học" class="aboutteam-avatar" />
+                        <div class="aboutteam-socials">
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="aboutteam-info">
+                        <h3 class="aboutteam-name">Lê Minh Học</h3>
+                        <span class="aboutteam-role">Developer, Thiết kế cơ sở dữ liệu</span>
+                    </div>
+                </div>
+                <div class="aboutteam-card">
+                    <div class="aboutteam-avatar-wrap">
+                        <img src="~/images/dev2.jpg" alt="Trần Vũ Huy" class="aboutteam-avatar" />
+                        <div class="aboutteam-socials">
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="aboutteam-info">
+                        <h3 class="aboutteam-name">Trần Vũ Huy</h3>
+                        <span class="aboutteam-role">Developer, Quản lý dự án</span>
+                    </div>
+                </div>
+            </div>
+            <div class="aboutteam-cta text-center">
+                <h3>Bạn muốn đồng hành cùng chúng tôi?</h3>
+                <a href="#careers" class="aboutteam-btn">
+                    Gia nhập team <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Partners Section ======================= -->
+    <section class="aboutpartners-modern-section">
+        <div class="container">
+            <div class="aboutpartners-header text-center">
+                <span class="aboutpartners-badge">Đối tác chiến lược</span>
+                <h2 class="aboutpartners-title">
+                    Cùng đồng hành phát triển <span class="highlight">Phú Yên Travel</span>
+                </h2>
+                <p class="aboutpartners-desc">
+                    Chúng tôi tự hào hợp tác với những thương hiệu uy tín để mang đến trải nghiệm tốt nhất cho khách hàng.
+                </p>
+            </div>
+            <div class="aboutpartners-grid">
+                <div class="aboutpartners-card">
+                    <div class="aboutpartners-logo-wrap">
+                        <img src="~/images/doitac_1.png" alt="TravelCo" class="aboutpartners-logo" />
+                    </div>
+                    <div class="aboutpartners-info">
+                        <h3 class="aboutpartners-name">TravelCo</h3>
+                        <p class="aboutpartners-description">Đối tác du lịch hàng đầu khu vực miền Trung</p>
+                        <a href="#" class="aboutpartners-link" target="_blank" rel="noopener noreferrer">
+                            Xem website <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="aboutpartners-card">
+                    <div class="aboutpartners-logo-wrap">
+                        <img src="~/images/doitac_2.jpg" alt="HotelX" class="aboutpartners-logo" />
+                    </div>
+                    <div class="aboutpartners-info">
+                        <h3 class="aboutpartners-name">HotelX</h3>
+                        <p class="aboutpartners-description">Chuỗi khách sạn cao cấp tại Phú Yên</p>
+                        <a href="#" class="aboutpartners-link" target="_blank" rel="noopener noreferrer">
+                            Xem website <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="aboutpartners-cta text-center">
+                <h3>Bạn muốn trở thành đối tác?</h3>
+                <a href="#contact" class="aboutpartners-btn">
+                    Liên hệ hợp tác <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

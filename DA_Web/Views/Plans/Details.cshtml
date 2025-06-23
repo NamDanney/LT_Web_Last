@@ -1,0 +1,748 @@
+﻿@using System.Security.Claims
+
+@model DA_Web.Models.Tour
+@{
+    ViewData["Title"] = Model.Destination;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="~/styles/Plans/DetailsPlans.css" />
+}
+
+<div class="tour-header" style="background-image: url('@Model.Image')">
+    <div class="container">
+        <div class="tour-breadcrumb">
+            <a asp-controller="Home" asp-action="Index">Trang chủ</a> /
+            <a asp-controller="Plans" asp-action="Index">Tours</a> /
+            <span>@Model.Destination</span>
+        </div>
+
+        <div class="tour-header-content">
+            <h1 class="tour-title">@Model.Destination</h1>
+            <div class="tour-meta">
+                <div class="tour-meta-item">
+                    <i class="bi bi-clock"></i> <span>@Model.Duration</span>
+                </div>
+                <div class="tour-meta-item">
+                    <i class="bi bi-geo-alt"></i> <span>@Model.DepartureFrom</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="tour-detail">
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="tour-tabs">
+            <ul class="nav nav-tabs" id="tourTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">
+                        <i class="bi bi-info-circle"></i> Tổng quan
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="schedule-tab" data-bs-toggle="tab" data-bs-target="#schedule" type="button" role="tab">
+                        <i class="bi bi-calendar3"></i> Lịch trình
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab">
+                        <i class="bi bi-card-text"></i> Thông tin
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab">
+                        <i class="bi bi-star"></i> Đánh giá
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="tourTabContent">
+            <!-- Overview Tab -->
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                <div class="tour-content-wrapper">
+                    <div class="content-section">
+                        <h3><i class="bi bi-file-text"></i> Mô tả chi tiết</h3>
+                        <div class="section-content">
+                            @Html.Raw(Model.Description)
+                        </div>
+                    </div>
+
+                    <!-- Highlights Section -->
+                    @if (Model.TourHighlights != null && Model.TourHighlights.Any())
+                    {
+                        <div class="content-section">
+                            <h3><i class="bi bi-star"></i> Điểm nổi bật</h3>
+                            <ul class="highlight-list">
+                                @foreach (var highlight in Model.TourHighlights)
+                                {
+                                    <li class="highlight-item">
+                                        <div class="highlight-icon">
+                                            <i class="bi bi-check"></i>
+                                        </div>
+                                        <div class="highlight-text">@highlight.Highlight</div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <!-- Destinations Section -->
+                    @if (Model.TourLocations != null && Model.TourLocations.Any())
+                    {
+                        <div class="content-section">
+                            <h3><i class="bi bi-geo-alt"></i> Các điểm đến trong hành trình</h3>
+                            <div class="destinations-grid">
+                                @foreach (var location in Model.TourLocations.Select(tl => tl.Location).Distinct())
+                                {
+                                    <a href="@Url.Action("Details", "Locations", new { id = location.Id })" class="destination-card">
+                                        <div class="destination-card-header">@location.Name</div>
+                                        <div class="destination-card-body">
+                                            <small class="text-muted">@location.Type</small>
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Schedule Tab with Map -->
+            <div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                <div class="schedule-layout">
+                    <!-- Map Sidebar -->
+                    <div class="map-sidebar">
+                        <div class="map-box">
+                            <h3><i class="bi bi-map"></i> Bản đồ tour</h3>
+                            <div id="tour-map"></div>
+                        </div>
+
+                        <!-- Location List -->
+                        @if (Model.TourLocations != null && Model.TourLocations.Any())
+                        {
+                            <div class="location-list">
+                                <h4 class="location-list-title">
+                                    <i class="bi bi-geo-fill"></i> Điểm tham quan
+                                </h4>
+                                <ul class="locations-summary">
+                                    @{
+                                        var uniqueLocations = Model.TourLocations
+                                        .Select(tl => tl.Location)
+                                        .Distinct()
+                                        .ToList();
+                                    }
+                                    @for (int i = 0; i < uniqueLocations.Count; i++)
+                                    {
+                                        var location = uniqueLocations[i];
+                                        <li class="location-item" data-location-id="@location.Id">
+                                            <div class="location-marker">@(i + 1)</div>
+                                            <div class="location-details">
+                                                <h5>@location.Name</h5>
+                                                @if (!string.IsNullOrEmpty(location.Type))
+                                                {
+                                                    <span class="location-type-badge">@location.Type</span>
+                                                }
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Schedule Content -->
+                    <div class="schedule-content">
+                        @if (Model.TourSchedules != null && Model.TourSchedules.Any())
+                        {
+                            foreach (var schedule in Model.TourSchedules.OrderBy(s => s.Day))
+                            {
+                                <div class="schedule-day">
+                                    <div class="day-header">
+                                        <h3>@schedule.Day</h3>
+                                        <h4>@schedule.Title</h4>
+                                    </div>
+
+                                    @if (schedule.TourLocations != null && schedule.TourLocations.Any())
+                                    {
+                                        <div class="mb-3">
+                                            <strong>Điểm đến:</strong>
+                                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                                @foreach (var tourLocation in schedule.TourLocations)
+                                                {
+                                                    <a href="@Url.Action("Details", "Locations", new { id = tourLocation.Location.Id })" class="location-badge">
+                                                        <i class="bi bi-geo-alt"></i> @tourLocation.Location.Name
+                                                    </a>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (schedule.ScheduleActivities != null && schedule.ScheduleActivities.Any())
+                                    {
+                                        <div class="mt-3">
+                                            <h5>Hoạt động trong ngày:</h5>
+                                            @foreach (var activity in schedule.ScheduleActivities)
+                                            {
+                                                <div class="d-flex mb-2">
+                                                    <i class="bi bi-check2-circle text-success me-2 mt-1"></i>
+                                                    <div>@activity.Activity</div>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="no-map-message">
+                                <i class="bi bi-calendar-x"></i>
+                                <p>Không có thông tin lịch trình chi tiết cho tour này.</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Tab -->
+            <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                <div class="tour-content-wrapper">
+                    <div class="info-grid">
+                        <div class="info-column">
+                            <h3><i class="bi bi-check-circle"></i> Trải nghiệm nổi bật</h3>
+                            <ul class="info-list">
+                                @if (Model.TourIncludes != null && Model.TourIncludes.Any())
+                                {
+                                    foreach (var include in Model.TourIncludes)
+                                    {
+                                        <li><i class="bi bi-check-circle-fill"></i> @include.Description</li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li><i class="bi bi-check-circle-fill"></i> Xe du lịch đời mới máy lạnh suốt tuyến</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Khách sạn tiêu chuẩn 3 sao (2 người/phòng)</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Các bữa ăn theo chương trình</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Hướng dẫn viên nhiệt tình, kinh nghiệm</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Vé tham quan các điểm theo lịch trình</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Bảo hiểm du lịch mức đền bù tối đa 30 triệu đồng/người/vụ</li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="info-column">
+                            <h3><i class="bi bi-x-circle"></i> Không bao gồm</h3>
+                            <ul class="info-list">
+                                @if (Model.TourExcludes != null && Model.TourExcludes.Any())
+                                {
+                                    foreach (var exclude in Model.TourExcludes)
+                                    {
+                                        <li class="exclude"><i class="bi bi-x-circle-fill"></i> @exclude.Description</li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li class="exclude"><i class="bi bi-x-circle-fill"></i> Chi phí cá nhân, đồ uống</li>
+                                    <li class="exclude"><i class="bi bi-x-circle-fill"></i> Các chi phí không được đề cập trong mục bao gồm</li>
+                                    <li class="exclude"><i class="bi bi-x-circle-fill"></i> Tiền tip cho hướng dẫn viên và tài xế</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Notes Section -->
+                    @if (Model.TourNotes != null && Model.TourNotes.Any())
+                    {
+                        <div class="notes-box">
+                            <h3><i class="bi bi-exclamation-triangle"></i> Lưu ý khi khám phá</h3>
+                            @foreach (var note in Model.TourNotes)
+                            {
+                                <p>@note.Description</p>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="notes-box">
+                            <h3><i class="bi bi-exclamation-triangle"></i> Lưu ý khi khám phá</h3>
+                            <p>Quý khách vui lòng mang theo giấy tờ tùy thân (CMND/CCCD)</p>
+                            <p>Lịch trình có thể thay đổi tùy theo điều kiện thời tiết và tình hình thực tế</p>
+                            <p>Trẻ em dưới 2 tuổi miễn phí, từ 2-5 tuổi tính 50% giá tour, từ 6 tuổi trở lên tính như người lớn</p>
+                            <p>Quý khách nên mang theo thuốc đau bụng, cảm sốt, thuốc chống say xe</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                <div class="review-layout">
+                    @{
+                        var reviews = Model.Reviews.OrderByDescending(r => r.CreatedAt).ToList();
+                        var totalReviews = reviews.Count;
+                        var averageRating = totalReviews > 0 ? reviews.Average(r => r.Rating) : 0;
+                    }
+
+                    <!-- Cột bên trái: Form đánh giá và danh sách đánh giá -->
+                    <div class="review-main-content">
+                        <h4 class="review-section-title">Đánh giá từ du khách (@totalReviews đánh giá)</h4>
+
+                        <!-- FORM ĐÁNH GIÁ -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="review-form-container card mb-4">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="@(User.FindFirstValue("Avatar") ?? "/images/default-avatar.png")" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" />
+                                        <div>
+                                            <h6 class="mb-0">Viết đánh giá của bạn</h6>
+                                            <span class="text-muted small">Chia sẻ trải nghiệm của bạn với cộng đồng</span>
+                                        </div>
+                                    </div>
+                                    <div id="review-form-result" class="mb-3"></div>
+
+                                    <form id="review-form" novalidate enctype="multipart/form-data">
+                                        <input type="hidden" id="tourId" name="TourId" value="@Model.Id" />
+                                        <div class="mb-3">
+                                            <label class="form-label d-block">Xếp hạng:</label>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star" data-value="1"></i><i class="bi bi-star" data-value="2"></i><i class="bi bi-star" data-value="3"></i><i class="bi bi-star" data-value="4"></i><i class="bi bi-star" data-value="5"></i>
+                                            </div>
+                                            <input type="hidden" id="ratingValue" name="Rating" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="review-comment" class="form-label">Bình luận của bạn:</label>
+                                            <textarea id="review-comment" name="Comment" class="form-control" rows="4" placeholder="Chuyến đi này tuyệt vời như thế nào?..." required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="review-images" class="form-label">Thêm hình ảnh (tối đa 5 ảnh):</label>
+                                            <input class="form-control" type="file" id="review-images" name="Images" multiple accept="image/*">
+                                            <div id="image-preview-container" class="mt-3"></div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            <span class="submit-text">Gửi đánh giá</span>
+                                            <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info">
+                                Vui lòng <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path">đăng nhập</a> để gửi đánh giá của bạn.
+                            </div>
+                        }
+
+                        <!-- DANH SÁCH ĐÁNH GIÁ -->
+                        <div id="review-list">
+                            @if (reviews.Any())
+                            {
+                                foreach (var review in reviews)
+                                {
+                                    <div class="review-card card mb-3">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <img src="@(review.User?.Avatar ?? "/images/default-avatar.png")" alt="@review.User?.Username" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;">
+                                                <div>
+                                                    <h6 class="mb-0">@review.User?.Username</h6>
+                                                    <div class="small text-muted">@review.CreatedAt.ToString("dd/MM/yyyy 'lúc' HH:mm")</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                @for (int i = 1; i <= 5; i++)
+                                                {
+                                                    <i class="bi @(i <= review.Rating ? "bi-star-fill text-warning" : "bi-star")"></i>
+                                                }
+                                            </div>
+                                            <p class="card-text">@review.Comment</p>
+                                            @if (review.ReviewImages != null && review.ReviewImages.Any())
+                                            {
+                                                <div class="review-images-grid">
+                                                    @foreach (var img in review.ReviewImages)
+                                                    {
+                                                        <div class="review-image-item"><img src="@img.ImageUrl" alt="Review image" loading="lazy"></div>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div id="no-reviews-message" class="empty-reviews">
+                                    <i class="bi bi-chat-left-dots"></i>
+                                    <p>Chưa có đánh giá nào. Hãy là người đầu tiên chia sẻ trải nghiệm của bạn!</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Cột bên phải: Thống kê đánh giá -->
+                    <div class="review-summary-sidebar">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tổng quan đánh giá</h5>
+                                <div class="average-rating-display">
+                                    <span class="rating-value">@averageRating.ToString("0.0")</span>
+                                    <div class="rating-stars-display">
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (averageRating >= i)
+                                            {
+                                                <i class="bi bi-star-fill"></i>
+                                            }
+                                            else if (averageRating > i - 1)
+                                            {
+                                                <i class="bi bi-star-half"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-star"></i>
+                                            }
+                                        }
+                                    </div>
+                                    <span class="total-reviews-count">dựa trên @totalReviews đánh giá</span>
+                                </div>
+
+                                <div class="rating-breakdown">
+                                    @for (int i = 5; i >= 1; i--)
+                                    {
+                                        var count = reviews.Count(r => r.Rating == i);
+                                        var percentage = totalReviews > 0 ? (double)count / totalReviews * 100 : 0;
+                                        <div class="rating-bar-row">
+                                            <div class="star-label">@i <i class="bi bi-star-fill"></i></div>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: @percentage%;" aria-valuenow="@percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <div class="star-count">@count</div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- MAP LOGIC (Giữ nguyên logic bản đồ của bạn) ---
+            var map;
+            try {
+        @{
+            var locationData = Model.TourLocations?.Select(tl => new
+            {
+                id = tl.Location.Id,
+                name = tl.Location.Name,
+                type = tl.Location.Type,
+                latitude = tl.Location.Latitude,
+                longitude = tl.Location.Longitude,
+                description = tl.Location.Description
+            }).Distinct().ToList();
+        }
+                const tourLocations = @Html.Raw(locationData != null ? Json.Serialize(locationData) : "[]");
+
+                if (tourLocations && tourLocations.length > 0) {
+                    const validLocations = tourLocations.filter(loc => loc.latitude && loc.longitude);
+                    if (validLocations.length > 0) {
+                        const avgLat = validLocations.reduce((sum, loc) => sum + parseFloat(loc.latitude), 0) / validLocations.length;
+                        const avgLng = validLocations.reduce((sum, loc) => sum + parseFloat(loc.longitude), 0) / validLocations.length;
+
+                        map = L.map('tour-map').setView([avgLat, avgLng], 10);
+                        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
+                            maxZoom: 19
+                        }).addTo(map);
+
+                        const createCustomIcon = (index) => L.divIcon({ className: 'custom-map-marker', html: `<div class="marker-content">${index + 1}</div>`, iconSize: [36, 36], iconAnchor: [18, 36], popupAnchor: [0, -36] });
+
+                        const polylinePoints = [];
+                        validLocations.forEach((location, index) => {
+                            const lat = parseFloat(location.latitude);
+                            const lng = parseFloat(location.longitude);
+                            polylinePoints.push([lat, lng]);
+                            const marker = L.marker([lat, lng], { icon: createCustomIcon(index) }).addTo(map);
+                            marker.bindPopup(`<div class="popup-content"><h4>${location.name}</h4><p>${location.description || ''}</p></div>`);
+                        });
+
+                        if (polylinePoints.length > 1) {
+                            L.polyline(polylinePoints, { color: '#2980B9', weight: 3, opacity: 0.7, dashArray: '5, 10' }).addTo(map);
+                        }
+                        if (validLocations.length > 0) {
+                            map.fitBounds(L.featureGroup(validLocations.map(loc => L.marker([loc.latitude, loc.longitude]))).getBounds().pad(0.1));
+                        }
+                    } else {
+                        document.getElementById('tour-map').innerHTML = `<div class="no-map-message"><i class="bi bi-geo-alt-fill"></i><p>Tour chưa có thông tin tọa độ.</p></div>`;
+                    }
+                } else {
+                    document.getElementById('tour-map').innerHTML = `<div class="no-map-message"><i class="bi bi-geo-alt-fill"></i><p>Tour chưa có thông tin địa điểm.</p></div>`;
+                }
+            } catch (e) {
+                console.error("Map Error:", e);
+            }
+
+            document.getElementById('schedule-tab')?.addEventListener('shown.bs.tab', function () {
+                if (map) setTimeout(() => map.invalidateSize(), 10);
+            });
+
+            // --- LIGHTBOX MODAL FOR IMAGES ---
+            createImageLightbox();
+
+            // --- REVIEW LOGIC ---
+            const reviewForm = document.getElementById('review-form');
+            if (reviewForm) {
+                const ratingValueInput = reviewForm.querySelector('#ratingValue');
+                const imageInput = document.getElementById('review-images');
+                const previewContainer = document.getElementById('image-preview-container');
+                const submitButton = reviewForm.querySelector('button[type="submit"]');
+                let selectedFiles = [];
+
+                // Star rating logic
+                reviewForm.querySelectorAll('.rating-stars i').forEach(star => {
+                    star.addEventListener('click', () => {
+                        ratingValueInput.value = star.dataset.value;
+                        reviewForm.querySelectorAll('.rating-stars i').forEach(s => s.classList.remove('selected'));
+                        for (let i = 0; i < star.dataset.value; i++) {
+                            reviewForm.querySelectorAll('.rating-stars i')[i].classList.add('selected');
+                        }
+                    });
+                });
+
+                // Image preview logic
+                imageInput.addEventListener('change', function() {
+                    if (this.files.length > 5) {
+                        alert("Bạn chỉ có thể chọn tối đa 5 ảnh.");
+                        this.value = "";
+                        return;
+                    }
+                    selectedFiles = Array.from(this.files);
+                    renderImagePreviews();
+                });
+
+                function renderImagePreviews() {
+                    previewContainer.innerHTML = '';
+                    if (selectedFiles.length > 0) {
+                        previewContainer.innerHTML = '<div class="image-preview-grid"></div>';
+                        const grid = previewContainer.querySelector('.image-preview-grid');
+
+                        selectedFiles.forEach((file, index) => {
+                            const reader = new FileReader();
+                            reader.onload = e => {
+                                const div = document.createElement('div');
+                                div.className = 'image-preview-item';
+                                div.innerHTML = `
+                                    <img src="${e.target.result}" alt="${file.name}">
+                                    <button type="button" class="remove-image-btn" data-index="${index}">
+                                        <i class="bi bi-x"></i>
+                                    </button>
+                                `;
+                                grid.appendChild(div);
+                            };
+                            reader.readAsDataURL(file);
+                        });
+                    }
+                }
+
+                previewContainer.addEventListener('click', function(e) {
+                    if (e.target.closest('.remove-image-btn')) {
+                        const btn = e.target.closest('.remove-image-btn');
+                        const indexToRemove = parseInt(btn.dataset.index);
+                        selectedFiles.splice(indexToRemove, 1);
+                        const dataTransfer = new DataTransfer();
+                        selectedFiles.forEach(file => dataTransfer.items.add(file));
+                        imageInput.files = dataTransfer.files;
+                        renderImagePreviews();
+                    }
+                });
+
+                // Form submission
+                reviewForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const formData = new FormData(reviewForm);
+
+                    if (!formData.get("Rating")) {
+                        document.getElementById('review-form-result').innerHTML = `<div class="alert alert-danger">Vui lòng chọn số sao đánh giá.</div>`;
+                        return;
+                    }
+
+                    setLoadingState(true);
+
+                    fetch('/api/Review', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(res => {
+                        if (res.redirected || res.status === 401 || res.status === 403) {
+                            window.location.href = '/Account/Login?ReturnUrl=' + window.location.pathname;
+                            throw new Error("Authentication required");
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            document.getElementById('review-form-result').innerHTML = `<div class="alert alert-success">Đánh giá của bạn đã được gửi thành công!</div>`;
+                            addNewReviewToDom(data.data);
+                            reviewForm.reset();
+                            selectedFiles = [];
+                            renderImagePreviews();
+                            // Reset rating stars
+                            reviewForm.querySelectorAll('.rating-stars i').forEach(s => s.classList.remove('selected'));
+                            ratingValueInput.value = '';
+                        } else {
+                            const errorMessages = Array.isArray(data.errors) ? data.errors.join('<br>') : data.message;
+                            document.getElementById('review-form-result').innerHTML = `<div class="alert alert-danger">${errorMessages}</div>`;
+                        }
+                    })
+                    .catch(error => {
+                        if (error.message !== "Authentication required") {
+                            document.getElementById('review-form-result').innerHTML = `<div class="alert alert-danger">Đã có lỗi xảy ra khi gửi đánh giá.</div>`;
+                        }
+                        console.error('Submit Error:', error);
+                    })
+                    .finally(() => setLoadingState(false));
+                });
+
+                function setLoadingState(isLoading) {
+                    const submitText = submitButton.querySelector('.submit-text');
+                    const spinner = submitButton.querySelector('.spinner-border');
+                    if(isLoading) {
+                        submitButton.disabled = true;
+                        submitText.textContent = 'Đang gửi...';
+                        spinner.classList.remove('d-none');
+                    } else {
+                        submitButton.disabled = false;
+                        submitText.textContent = 'Gửi đánh giá';
+                        spinner.classList.add('d-none');
+                    }
+                }
+            }
+
+            // *** SỬA LỖI: CẢI THIỆN FUNCTION addNewReviewToDom ***
+            function addNewReviewToDom(review) {
+                const reviewList = document.getElementById('review-list');
+                const noReviewsMsg = document.getElementById('no-reviews-message');
+                if (noReviewsMsg) noReviewsMsg.remove();
+
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card card mb-3';
+
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    starsHtml += `<i class="bi ${i <= review.rating ? 'bi-star-fill text-warning' : 'bi-star'}"></i>`;
+                }
+
+                let imagesHtml = '';
+                if(review.images && review.images.length > 0) {
+                    imagesHtml += '<div class="review-images-grid">';
+                    review.images.forEach(url => {
+                        // Đảm bảo đường dẫn ảnh đúng - thêm / nếu cần
+                        const imageUrl = url.startsWith('/') ? url : '/' + url;
+                        imagesHtml += `<div class="review-image-item">
+                            <img src="${imageUrl}" alt="Review image" loading="lazy" onclick="openLightbox('${imageUrl}')">
+                        </div>`;
+                    });
+                    imagesHtml += '</div>';
+                }
+
+                const formattedDate = new Date(review.createdAt).toLocaleString('vi-VN', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                // Đảm bảo đường dẫn avatar đúng
+                const avatarUrl = review.userAvatar ?
+                    (review.userAvatar.startsWith('/') ? review.userAvatar : '/' + review.userAvatar) :
+                    '/images/default-avatar.png';
+
+                reviewCard.innerHTML = `
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="${avatarUrl}" alt="${review.userName}" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">${review.userName}</h6>
+                                <div class="small text-muted">${formattedDate}</div>
+                            </div>
+                        </div>
+                        <div class="mb-2">${starsHtml}</div>
+                        <p class="card-text">${review.comment}</p>
+                        ${imagesHtml}
+                    </div>`;
+
+                reviewList.prepend(reviewCard);
+
+                // Thêm animation cho review mới
+                reviewCard.style.opacity = '0';
+                reviewCard.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    reviewCard.style.transition = 'all 0.3s ease-in-out';
+                    reviewCard.style.opacity = '1';
+                    reviewCard.style.transform = 'translateY(0)';
+                }, 100);
+            }
+
+            // *** LIGHTBOX FUNCTIONS ***
+            function createImageLightbox() {
+                const lightboxHtml = `
+                    <div id="image-lightbox" class="lightbox-overlay" style="display: none;">
+                        <div class="lightbox-container">
+                            <button class="lightbox-close" onclick="closeLightbox()">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <img id="lightbox-image" src="" alt="Review image">
+                        </div>
+                    </div>`;
+                document.body.insertAdjacentHTML('beforeend', lightboxHtml);
+            }
+
+            // Thêm event listener cho các ảnh hiện có
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.review-image-item img')) {
+                    const img = e.target.closest('.review-image-item img');
+                    openLightbox(img.src);
+                }
+            });
+
+            // Global functions for lightbox
+            window.openLightbox = function(imageSrc) {
+                const lightbox = document.getElementById('image-lightbox');
+                const lightboxImage = document.getElementById('lightbox-image');
+                lightboxImage.src = imageSrc;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeLightbox = function() {
+                const lightbox = document.getElementById('image-lightbox');
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+
+            // Close lightbox when clicking outside image
+            document.addEventListener('click', function(e) {
+                if (e.target.id === 'image-lightbox') {
+                    closeLightbox();
+                }
+            });
+
+            // Close lightbox with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+}

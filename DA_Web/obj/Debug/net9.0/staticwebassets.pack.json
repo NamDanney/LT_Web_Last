@@ -1,0 +1,1737 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\DA_Web.bundle.scp.css",
+      "PackagePath": "staticwebassets\\DA_Web.ig5fy5f8fk.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\css\\chatbot.css",
+      "PackagePath": "staticwebassets\\css\\chatbot.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\css\\plan.css",
+      "PackagePath": "staticwebassets\\css\\plan.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\avatar-1.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\avatar-2.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\avatar-3.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\avatar-4.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\background_BX_2.jpg",
+      "PackagePath": "staticwebassets\\images\\background_BX_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\background_GDD_3.jpg",
+      "PackagePath": "staticwebassets\\images\\background_GDD_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\background_MD_4.jpg",
+      "PackagePath": "staticwebassets\\images\\background_MD_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\background_PY_1.jpg",
+      "PackagePath": "staticwebassets\\images\\background_PY_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\dev1.jpg",
+      "PackagePath": "staticwebassets\\images\\dev1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\dev2.jpg",
+      "PackagePath": "staticwebassets\\images\\dev2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\dev3.jpg",
+      "PackagePath": "staticwebassets\\images\\dev3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\doitac_1.png",
+      "PackagePath": "staticwebassets\\images\\doitac_1.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\doitac_2.jpg",
+      "PackagePath": "staticwebassets\\images\\doitac_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\errorCui.jpg",
+      "PackagePath": "staticwebassets\\images\\errorCui.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\errorExp.jpg",
+      "PackagePath": "staticwebassets\\images\\errorExp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\hero-bg.jpg",
+      "PackagePath": "staticwebassets\\images\\hero-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\images\\logo1.png",
+      "PackagePath": "staticwebassets\\images\\logo1.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\js\\chatbot.js",
+      "PackagePath": "staticwebassets\\js\\chatbot.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\js\\plan-create.js",
+      "PackagePath": "staticwebassets\\js\\plan-create.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\js\\plan-edit.js",
+      "PackagePath": "staticwebassets\\js\\plan-edit.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\About\\AboutBanner.css",
+      "PackagePath": "staticwebassets\\styles\\About\\AboutBanner.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\About\\AboutFeatures.css",
+      "PackagePath": "staticwebassets\\styles\\About\\AboutFeatures.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\About\\AboutMission.css",
+      "PackagePath": "staticwebassets\\styles\\About\\AboutMission.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\About\\AboutPartners.css",
+      "PackagePath": "staticwebassets\\styles\\About\\AboutPartners.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\About\\AboutTeam.css",
+      "PackagePath": "staticwebassets\\styles\\About\\AboutTeam.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Admin\\admin.css",
+      "PackagePath": "staticwebassets\\styles\\Admin\\admin.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Auth\\ProfileForm.css",
+      "PackagePath": "staticwebassets\\styles\\Auth\\ProfileForm.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Auth\\account.css",
+      "PackagePath": "staticwebassets\\styles\\Auth\\account.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Contact\\ContactFAQ.css",
+      "PackagePath": "staticwebassets\\styles\\Contact\\ContactFAQ.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Contact\\ContactForm.css",
+      "PackagePath": "staticwebassets\\styles\\Contact\\ContactForm.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Contact\\ContactHeader.css",
+      "PackagePath": "staticwebassets\\styles\\Contact\\ContactHeader.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Contact\\ContactInfo.css",
+      "PackagePath": "staticwebassets\\styles\\Contact\\ContactInfo.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\HomePageCSS\\AboutSection.css",
+      "PackagePath": "staticwebassets\\styles\\HomePageCSS\\AboutSection.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\HomePageCSS\\DestinationsSection.css",
+      "PackagePath": "staticwebassets\\styles\\HomePageCSS\\DestinationsSection.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\HomePageCSS\\HeroSection.css",
+      "PackagePath": "staticwebassets\\styles\\HomePageCSS\\HeroSection.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\HomePageCSS\\TestimonialsSection.css",
+      "PackagePath": "staticwebassets\\styles\\HomePageCSS\\TestimonialsSection.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\HomePageCSS\\TravelPlanSection.css",
+      "PackagePath": "staticwebassets\\styles\\HomePageCSS\\TravelPlanSection.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Location\\LocationDetailPage.css",
+      "PackagePath": "staticwebassets\\styles\\Location\\LocationDetailPage.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Location\\LocationList.css",
+      "PackagePath": "staticwebassets\\styles\\Location\\LocationList.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Location\\MgtListLocation.css",
+      "PackagePath": "staticwebassets\\styles\\Location\\MgtListLocation.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Location\\WeatherSection.css",
+      "PackagePath": "staticwebassets\\styles\\Location\\WeatherSection.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Plans\\CreatePlans.css",
+      "PackagePath": "staticwebassets\\styles\\Plans\\CreatePlans.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Plans\\DetailsPlans.css",
+      "PackagePath": "staticwebassets\\styles\\Plans\\DetailsPlans.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Plans\\EditPlans.css",
+      "PackagePath": "staticwebassets\\styles\\Plans\\EditPlans.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Plans\\MyPlans.css",
+      "PackagePath": "staticwebassets\\styles\\Plans\\MyPlans.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\show\\footer.css",
+      "PackagePath": "staticwebassets\\styles\\show\\footer.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\show\\header.css",
+      "PackagePath": "staticwebassets\\styles\\show\\header.css"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\27e77f5a-82b7-4a6a-b515-a68b0e0b2f8f_dev1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\27e77f5a-82b7-4a6a-b515-a68b0e0b2f8f_dev1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\541b551f-b700-4de4-ae4e-6bfbae424978_avatar-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\541b551f-b700-4de4-ae4e-6bfbae424978_avatar-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\a582ff70-7f52-4110-80b4-4a9163ab9669_svg1.png",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\a582ff70-7f52-4110-80b4-4a9163ab9669_svg1.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\edeaa29c-e4a4-4296-8d8f-c6a2d0017696_imgThapNghinhPhong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\edeaa29c-e4a4-4296-8d8f-c6a2d0017696_imgThapNghinhPhong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\user_1_1747796056619.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\user_1_1747796056619.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\user_1_1748411672188.png",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\user_1_1748411672188.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\user_1_1748925154715.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\user_1_1748925154715.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\user_2_1747795564193.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\user_2_1747795564193.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\user_2_1749137340883.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\user_2_1749137340883.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\avatars\\user_4_1749225045049.png",
+      "PackagePath": "staticwebassets\\uploads\\avatars\\user_4_1749225045049.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\10\\10-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\10\\10-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\10\\10-cui-32.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\10\\10-cui-32.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\10\\10-exp-31.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\10\\10-exp-31.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\10\\10-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\10\\10-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\11\\11-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\11\\11-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\11\\11-cui-37.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\11\\11-cui-37.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\11\\11-exp-35.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\11\\11-exp-35.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\11\\11-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\11\\11-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\12\\12-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\12\\12-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\12\\12-cui-40.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\12\\12-cui-40.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\12\\12-exp-38.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\12\\12-exp-38.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\12\\12-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\12\\12-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\13\\13-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\13\\13-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\13\\13-cui-43.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\13\\13-cui-43.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\13\\13-exp-40.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\13\\13-exp-40.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\13\\13-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\13\\13-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\architecture\\architecture-1746641277526.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\architecture\\architecture-1746641277526.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\cuisines\\cuisines-1-1746641277531.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\cuisines\\cuisines-1-1746641277531.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\cuisines\\cuisines-1746641277530.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\cuisines\\cuisines-1746641277530.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\cuisines\\cuisines-2-1746641277532.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\cuisines\\cuisines-2-1746641277532.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\experiences\\experiences-1-1746641277529.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\experiences\\experiences-1-1746641277529.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\experiences\\experiences-1746641277528.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\experiences\\experiences-1746641277528.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\experiences\\experiences-2-1746641277530.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\experiences\\experiences-2-1746641277530.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\19\\introduction\\introduction-1746641277523.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\19\\introduction\\introduction-1746641277523.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-cui-25.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-cui-25.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-cui-26.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-cui-26.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-cui-27.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-cui-27.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-cui-28.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-cui-28.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-exp-25.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-exp-25.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-exp-26.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-exp-26.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-exp-27.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-exp-27.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\1\\1-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\1\\1-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\architecture\\architecture-1746643069515.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\architecture\\architecture-1746643069515.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\cuisines\\cuisines-1-1746643069520.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\cuisines\\cuisines-1-1746643069520.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\cuisines\\cuisines-1746643069519.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\cuisines\\cuisines-1746643069519.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\cuisines\\cuisines-2-1746643069521.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\cuisines\\cuisines-2-1746643069521.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\experiences\\experiences-1-1746643069518.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\experiences\\experiences-1-1746643069518.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\experiences\\experiences-1746643069518.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\experiences\\experiences-1746643069518.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\experiences\\experiences-2-1746643069519.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\experiences\\experiences-2-1746643069519.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\20\\introduction\\introduction-1746643069512.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\20\\introduction\\introduction-1746643069512.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\2\\2-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\2\\2-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\32\\32-intro-1746709267724.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\32\\32-intro-1746709267724.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\33\\33-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\33\\33-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\34\\34-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\34\\34-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-cui-0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-cui-0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-exp-0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-exp-0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\39\\39-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\39\\39-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\3\\3-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\3\\3-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-exp-4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-exp-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\40\\40-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\40\\40-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\41\\41-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\41\\41-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\42\\42-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\42\\42-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\43\\43-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\43\\43-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\43\\43-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\43\\43-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\43\\43-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\43\\43-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\43\\43-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\43\\43-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\43\\43-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\43\\43-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\43\\43-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\43\\43-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\43\\43-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\43\\43-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\44\\44-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\44\\44-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\44\\44-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\44\\44-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\44\\44-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\44\\44-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\44\\44-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\44\\44-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\44\\44-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\44\\44-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\45\\45-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\45\\45-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\4\\4-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\4\\4-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\5\\5-intro2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\5\\5-intro2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\6\\6-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\6\\6-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-cui-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-cui-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-cui-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-cui-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-cui-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-cui-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-exp-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-exp-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-exp-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-exp-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-exp-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-exp-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\7\\7-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\7\\7-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\8\\8-arch.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\8\\8-arch.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\8\\8-cui-22.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\8\\8-cui-22.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\8\\8-exp-22.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\8\\8-exp-22.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\8\\8-intro.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\8\\8-intro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgBaiMon.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgBaiMon.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgBaiXep.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgBaiXep.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgBienTuyHoa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgBienTuyHoa.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgCaoNguyenVanHoa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgCaoNguyenVanHoa.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgCauGoOngCop.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgCauGoOngCop.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgChuaThanhLuong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgChuaThanhLuong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgCuLaoMaiNha.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgCuLaoMaiNha.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgDamOLoan.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgDamOLoan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgDoiCatTuNham.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgDoiCatTuNham.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgGanhDaDia.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgGanhDaDia.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgHoaNua.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgHoaNua.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgHonChua.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgHonChua.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgHonYen.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgHonYen.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgMuiDien.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgMuiDien.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgNhaThoMangLang.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgNhaThoMangLang.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgNhatTuSon.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgNhatTuSon.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgThacCayDu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgThacCayDu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgThapNghinhPhong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgThapNghinhPhong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgThapNhan.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgThapNhan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgThienVienTrucLam.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgThienVienTrucLam.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgVucHom.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgVucHom.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\locations\\imgVungRo.jpg",
+      "PackagePath": "staticwebassets\\uploads\\locations\\imgVungRo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-1-1-1749223927455-461651656.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-1-1-1749223927455-461651656.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-1-1-1749223927457-565758662.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-1-1-1749223927457-565758662.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-1-1-1749223927460-906959183.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-1-1-1749223927460-906959183.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-1-1-1749223927462-242653641.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-1-1-1749223927462-242653641.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-1-2-1747887864927-263969544.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-1-2-1747887864927-263969544.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-1-2-1747887864929-704880336.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-1-2-1747887864929-704880336.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-2-1-1747806397799-273834835.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-2-1-1747806397799-273834835.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-2-1-1747806397807-545358605.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-2-1-1747806397807-545358605.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-2-1-1747806397811-846707831.png",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-2-1-1747806397811-846707831.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-2-1-1747806397814-782821251.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-2-1-1747806397814-782821251.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-2-1-1747806397818-636060083.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-2-1-1747806397818-636060083.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-2-2-1747799930974-168221229.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-2-2-1747799930974-168221229.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\review_images\\review-4-1-1749225395561-304387799.jpg",
+      "PackagePath": "staticwebassets\\uploads\\review_images\\review-4-1-1749225395561-304387799.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_2\\060e6d23-e195-4249-a035-84953897c64c_dao-cu-lao-mai-nha-phu-yen-768x680.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_2\\060e6d23-e195-4249-a035-84953897c64c_dao-cu-lao-mai-nha-phu-yen-768x680.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_2\\87ce1f2f-7e73-4fb1-a389-49136a75bd90_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_2\\87ce1f2f-7e73-4fb1-a389-49136a75bd90_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_7\\0738fc79-e012-4a56-b23c-3fe5626a549d_abd50993-9a64-4151-b66d-ccceff87c21e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_7\\0738fc79-e012-4a56-b23c-3fe5626a549d_abd50993-9a64-4151-b66d-ccceff87c21e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_7\\190e9df8-0c76-4b39-b65f-96507ae59df2_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_7\\190e9df8-0c76-4b39-b65f-96507ae59df2_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_7\\19df1917-451b-4fcd-a849-77de28cdadeb_Thap-Nghinh-Phong-Phu-Yen.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_7\\19df1917-451b-4fcd-a849-77de28cdadeb_Thap-Nghinh-Phong-Phu-Yen.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_7\\305668e0-c877-41bd-975a-350b960c6990_d939ca9a-0062-4616-a948-1f3ea5bc251e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_7\\305668e0-c877-41bd-975a-350b960c6990_d939ca9a-0062-4616-a948-1f3ea5bc251e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_7\\cee23e93-4590-4623-aff1-67b395e10d88_dao-cu-lao-mai-nha-phu-yen-768x680.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_7\\cee23e93-4590-4623-aff1-67b395e10d88_dao-cu-lao-mai-nha-phu-yen-768x680.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_7\\e4fd8f93-f6f6-4cb2-8e41-b83f67e09139_cb755106-444d-43fe-8ada-59323edbb784.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_7\\e4fd8f93-f6f6-4cb2-8e41-b83f67e09139_cb755106-444d-43fe-8ada-59323edbb784.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\03e92819-d2eb-4125-9b42-efe4f8a31a44_imgChuaThanhLuong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\03e92819-d2eb-4125-9b42-efe4f8a31a44_imgChuaThanhLuong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\133af3ae-17d0-4bd9-aad2-956d15f928dd_imgChuaThanhLuong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\133af3ae-17d0-4bd9-aad2-956d15f928dd_imgChuaThanhLuong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748502206870-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748502206870-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748503055055-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748503055055-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748503499526-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748503499526-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748503553785-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748503553785-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748503925248-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748503925248-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748504055492-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748504055492-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748504116440-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748504116440-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748504263461-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748504263461-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748504584483-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748504584483-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748504615500-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748504615500-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748504869935-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748504869935-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748505166314-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748505166314-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748505326450-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748505326450-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748505585998-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748505585998-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748505672330-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748505672330-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748505793111-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748505793111-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748506231956-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748506231956-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748506520244-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748506520244-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748506712159-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748506712159-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748507331886-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748507331886-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748507636859-4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748507636859-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748507696198-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748507696198-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748507843934-4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748507843934-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748507927532-6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748507927532-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748508039216-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748508039216-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748509716967-4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748509716967-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748512960650-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748512960650-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748575506572-4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748575506572-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748575634445-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748575634445-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748575727483-5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748575727483-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748577342191-Screenshot (103).png",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748577342191-Screenshot (103).png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748577381768-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748577381768-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748625942721-Screenshot (98).png",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748625942721-Screenshot (98).png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748628724212-5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748628724212-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748708273941-Screenshot (105).png",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748708273941-Screenshot (105).png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748708290910-Screenshot (99).png",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748708290910-Screenshot (99).png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748709436153-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748709436153-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748709975397-Screenshot (112).png",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748709975397-Screenshot (112).png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748710222479-Screenshot 2025-05-28 102259.png",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748710222479-Screenshot 2025-05-28 102259.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748710258859-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748710258859-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748710477873-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748710477873-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1748925330295-background_PY_1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1748925330295-background_PY_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749138699113-phu_yen_4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749138699113-phu_yen_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749138977891-phu_yen_4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749138977891-phu_yen_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749139107306-background_PY_1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749139107306-background_PY_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749140086938-dao-cu-lao-mai-nha-phu-yen-768x680.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749140086938-dao-cu-lao-mai-nha-phu-yen-768x680.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749140416740-kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749140416740-kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749140483413-dao-cu-lao-mai-nha-phu-yen-768x680.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749140483413-dao-cu-lao-mai-nha-phu-yen-768x680.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749140966039-kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749140966039-kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749219886429-dao-cu-lao-mai-nha-phu-yen-768x680.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749219886429-dao-cu-lao-mai-nha-phu-yen-768x680.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749220378255-phu_yen_4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749220378255-phu_yen_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749220543743-depositphotos659116566xl-1715649521002.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749220543743-depositphotos659116566xl-1715649521002.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749220604281-dao-cu-lao-mai-nha-phu-yen-768x680.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749220604281-dao-cu-lao-mai-nha-phu-yen-768x680.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749226124237-6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749226124237-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749226457424-5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749226457424-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749227128806-0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749227128806-0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1749277038934-6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1749277038934-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\196aecf8-fab6-4c48-be8c-ec3027d71179_imgCuLaoMaiNha.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\196aecf8-fab6-4c48-be8c-ec3027d71179_imgCuLaoMaiNha.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\1cae7282-9355-4b2c-95e8-b068715de603_imgChuaThanhLuong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\1cae7282-9355-4b2c-95e8-b068715de603_imgChuaThanhLuong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\419e5716-e972-466a-9a19-9b636aa3a0a5_imgThapNghinhPhong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\419e5716-e972-466a-9a19-9b636aa3a0a5_imgThapNghinhPhong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\439f50bb-a11a-4ca8-800d-1990f1d8de1a_imgDoiCatTuNham.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\439f50bb-a11a-4ca8-800d-1990f1d8de1a_imgDoiCatTuNham.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\55d4999d-b130-4cad-bfe8-81a89a1f75bc_imgThapNghinhPhong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\55d4999d-b130-4cad-bfe8-81a89a1f75bc_imgThapNghinhPhong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\610517f1-87e4-47a4-bd1e-bb16ae9c4b90_imgThapNghinhPhong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\610517f1-87e4-47a4-bd1e-bb16ae9c4b90_imgThapNghinhPhong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\71a58c9c-ee67-4d4b-8601-84097e5930fe_imgChuaThanhLuong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\71a58c9c-ee67-4d4b-8601-84097e5930fe_imgChuaThanhLuong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\7408540f-664d-429c-85b7-b53fb23e4082_imgCauGoOngCop.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\7408540f-664d-429c-85b7-b53fb23e4082_imgCauGoOngCop.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\8bc03f87-7ddc-46c8-9668-a067e5848cb0_imgChuaThanhLuong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\8bc03f87-7ddc-46c8-9668-a067e5848cb0_imgChuaThanhLuong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\9370edb0-7620-4ad0-9d75-05702b6041e1_imgCaoNguyenVanHoa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\9370edb0-7620-4ad0-9d75-05702b6041e1_imgCaoNguyenVanHoa.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\a2974714-7b0b-48fb-b039-d768dbc1682e_imgChuaThanhLuong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\a2974714-7b0b-48fb-b039-d768dbc1682e_imgChuaThanhLuong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\a4802a27-a320-44e7-98cf-ab759a7f6e66_imgHoaNua.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\a4802a27-a320-44e7-98cf-ab759a7f6e66_imgHoaNua.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\a48d93e3-7715-42d8-a235-398276970449_imgCuLaoMaiNha.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\a48d93e3-7715-42d8-a235-398276970449_imgCuLaoMaiNha.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\bffb47ac-63fc-4c2e-bff5-449dcc6547cf_imgCauGoOngCop.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\bffb47ac-63fc-4c2e-bff5-449dcc6547cf_imgCauGoOngCop.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\c075c640-73fb-484b-955a-c4d6057ac3a1_imgBienTuyHoa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\c075c640-73fb-484b-955a-c4d6057ac3a1_imgBienTuyHoa.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\d9d780c3-5927-4b7d-bd29-fcc211059ad6_imgCauGoOngCop.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\d9d780c3-5927-4b7d-bd29-fcc211059ad6_imgCauGoOngCop.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\e909d791-9db6-41c7-9c87-6965928bcc85_imgBaiXep.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\e909d791-9db6-41c7-9c87-6965928bcc85_imgBaiXep.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\ef0531ca-78ca-4724-afbf-a3745444096e_imgCauGoOngCop.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\ef0531ca-78ca-4724-afbf-a3745444096e_imgCauGoOngCop.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\ff95246b-7d9b-4bd8-bf3c-0d8e362579d8_imgThapNghinhPhong.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\ff95246b-7d9b-4bd8-bf3c-0d8e362579d8_imgThapNghinhPhong.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\tour-1748504012728-992990146.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\tour-1748504012728-992990146.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\tour-1748575660441-629037724.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\tour-1748575660441-629037724.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\tour-1748575664911-773380885.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\tour-1748575664911-773380885.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\tour-1748575786865-802513917.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\tour-1748575786865-802513917.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\tour-1748576213015-60199503.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\tour-1748576213015-60199503.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\tour-1748625849561-744212447.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\tour-1748625849561-744212447.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.DA_Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.DA_Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.DA_Web.props",
+      "PackagePath": "build\\DA_Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.DA_Web.props",
+      "PackagePath": "buildMultiTargeting\\DA_Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.DA_Web.props",
+      "PackagePath": "buildTransitive\\DA_Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,45 @@
+@model DA_Web.Models.Tour
+
+@{
+    ViewData["Title"] = "Xác nhận xóa Kế hoạch";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-danger">
+    <h3>Bạn có chắc chắn muốn xóa kế hoạch này không?</h3>
+    <p>Hành động này không thể được hoàn tác.</p>
+</div>
+
+
+<div>
+    <h4>Thông tin Kế hoạch</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên Tour
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+        <dt class="col-sm-2">
+            Khởi hành
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartureFrom)
+        </dd>
+        <dt class="col-sm-2">
+            Thời gian
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+    </dl>
+
+    <form asp-action="DeletePlan">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa vĩnh viễn" class="btn btn-danger" /> |
+        <a asp-action="ManagePlans" class="btn btn-secondary">Hủy</a>
+    </form>
+</div> 

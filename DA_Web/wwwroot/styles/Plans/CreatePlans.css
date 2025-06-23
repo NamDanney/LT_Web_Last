@@ -1,0 +1,400 @@
+﻿/* Main container */
+.create-itinerary-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+    .create-itinerary-container h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 40px;
+        font-size: 2.5rem;
+    }
+
+/* Stepper */
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    position: relative;
+}
+
+    .stepper::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 5%;
+        right: 5%;
+        height: 2px;
+        background: #ddd;
+        z-index: 1;
+    }
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    width: 25%;
+    z-index: 2;
+    background-color: #fff; /* Ensure steps are above the line */
+    padding: 0 10px;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 3;
+    font-weight: bold;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #ddd;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.step-label {
+    font-weight: 500;
+    color: #999;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.step.completed .step-number {
+    background: #4CAF50;
+    box-shadow: 0 0 0 2px #4CAF50;
+}
+
+.step.active .step-number {
+    background: #2196F3;
+    box-shadow: 0 0 0 2px #2196F3;
+}
+
+.step.active .step-label {
+    color: #2196F3;
+}
+
+/* Form styles */
+.create-tour-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.step-content {
+    animation: fadeIn 0.3s ease-in;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.step-content h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.8rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* Form groups */
+.create-tour-form-group {
+    margin-bottom: 20px;
+}
+
+    .create-tour-form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .create-tour-form-group input,
+    .create-tour-form-group select,
+    .create-tour-form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+    }
+
+        .create-tour-form-group select[multiple] {
+            height: auto;
+        }
+
+    .create-tour-form-group small {
+        display: block;
+        margin-top: 6px;
+        color: #64748b;
+        font-size: 0.85rem;
+    }
+
+    .create-tour-form-group input:focus,
+    .create-tour-form-group select:focus,
+    .create-tour-form-group textarea:focus {
+        outline: none;
+        border-color: #2196F3;
+        box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+    }
+
+.create-tour-form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.create-tour-form-group.half {
+    flex: 1;
+}
+
+/* Section specific styling */
+.create-tour-form-section {
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+    .create-tour-form-section h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: #333;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+/* Item inputs */
+.list-item, .highlight-item, .activity-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+    .list-item input, .highlight-item input, .activity-item input {
+        flex: 1;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 15px;
+    }
+
+    .activity-item .activity-time input {
+        width: 100px;
+        flex: none;
+    }
+
+/* Buttons */
+.remove-btn, .remove-activity-btn {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+    border-radius: 4px;
+    padding: 0 12px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+    .remove-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: #f5f5f5;
+        color: #bdbdbd;
+        border-color: #e0e0e0;
+    }
+
+    .remove-btn:hover:not(:disabled) {
+        background-color: #ef5350;
+        color: white;
+    }
+
+.add-btn, .add-activity-btn, .add-highlight-btn {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+    .add-btn:hover, .add-activity-btn:hover, .add-highlight-btn:hover {
+        background-color: #66bb6a;
+        color: white;
+    }
+
+/* Navigation buttons */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.nav-btn {
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.prev-btn {
+    background: #6c757d;
+}
+
+    .prev-btn:hover {
+        background: #5a6268;
+    }
+
+.next-btn {
+    background: #007bff;
+}
+
+    .next-btn:hover {
+        background: #0069d9;
+    }
+
+.submit-btn {
+    background: #28a745;
+}
+
+    .submit-btn:hover {
+        background: #218838;
+    }
+
+.nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Schedule styles */
+.itinerary-day {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.day-title {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.day-label {
+    background: rgba(0,0,0,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.day-location {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.day-activities {
+    padding: 20px;
+}
+
+/* Summary section */
+.form-summary {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid #dee2e6;
+}
+
+    .form-summary h3 {
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+.summary-content p {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.summary-content strong {
+    color: #000;
+    margin-right: 5px;
+    width: 200px;
+    display: inline-block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .stepper {
+        padding: 0;
+    }
+
+    .step-label {
+        font-size: 12px;
+    }
+
+    .create-tour-form-row {
+        flex-direction: column;
+    }
+
+    .activity-item {
+        flex-wrap: wrap;
+    }
+
+    .form-navigation {
+        flex-direction: column;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
+}

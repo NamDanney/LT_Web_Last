@@ -1,0 +1,133 @@
+﻿/* Responsive styles for _AdminLayout using Bootstrap utilities */
+body {
+    background-color: #f8f9fa;
+}
+
+.admin-wrapper {
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    width: 260px;
+    min-width: 260px;
+    background-color: #212529;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s;
+}
+
+.admin-main-content {
+    margin-left: 260px;
+    transition: margin-left 0.3s;
+    width: calc(100% - 260px);
+    padding: 2rem;
+}
+
+@media (max-width: 991.98px) {
+    .admin-sidebar {
+        left: -260px;
+    }
+
+        .admin-sidebar.active {
+            left: 0;
+        }
+
+    .admin-main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .admin-toggle-btn {
+        display: flex !important;
+    }
+
+    .admin-sidebar-overlay {
+        display: block;
+    }
+}
+
+.admin-toggle-btn {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    background: #212529;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(33,37,41,0.5);
+    z-index: 1039;
+}
+
+@media (max-width: 575.98px) {
+    .admin-main-content {
+        padding: 0.5rem;
+    }
+
+    .sidebar-header {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .admin-nav .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+.admin-nav .nav-link {
+    color: #adb5bd;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+    .admin-nav .nav-link.active,
+    .admin-nav .nav-link:hover {
+        background-color: #495057;
+        color: #fff;
+    }
+    /* Thêm khoảng cách giữa icon và text trong sidebar */
+    .admin-nav .nav-link i {
+        margin-right: 12px;
+        font-size: 1.2rem;
+        width: 24px;
+        min-width: 24px;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+.sidebar-header {
+    padding: 1.2rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid #495057;
+}
+
+.sidebar-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #495057;
+}

@@ -1,0 +1,237 @@
+﻿@model DA_Web.ViewModels.CreateTourRequest
+@{
+    ViewData["Title"] = "Tạo lịch trình mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var locations = ViewBag.Locations as List<DA_Web.Models.Location> ?? new List<DA_Web.Models.Location>();
+    var provinces = new List<string> {
+        "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cần Thơ", "Cao Bằng", "Đà Nẵng", "Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Nội", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa", "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang", "TP Hồ Chí Minh", "Trà Vinh", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái"
+    };
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/styles/Plans/CreatePlans.css" asp-append-version="true" />
+}
+
+<div class="create-itinerary-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <!-- Stepper -->
+    <div class="stepper">
+        <div class="step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Thông tin cơ bản</div>
+        </div>
+        <div class="step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Hình ảnh & Mô tả</div>
+        </div>
+        <div class="step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Lịch trình</div>
+        </div>
+        <div class="step" data-step="4">
+            <div class="step-number">4</div>
+            <div class="step-label">Hoàn tất</div>
+        </div>
+    </div>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="create-tour-form">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <!-- ✅ CRITICAL FIX: Proper JSON serialization without duplicate properties -->
+        <script>
+            // ✅ FIX 1: Simple mapping without duplicates
+                     var allLocations = @Html.Raw(Json.Serialize(
+                                locations.Select(l => new { Id = l.Id, Name = l.Name })
+                        ));
+            console.log("=== LOCATIONS DEBUG ===");
+            console.log("allLocations loaded:", allLocations?.length || 0, "locations");
+            if (allLocations && allLocations.length > 0) {
+                console.log("Sample location:", allLocations[0]);
+                console.log("First location structure:", Object.keys(allLocations[0]));
+            } else {
+                console.warn("❌ No locations loaded - this will cause issues!");
+            }
+        </script>
+
+        <!-- Step 1: Basic Info -->
+        <div class="step-content" data-step="1">
+            <h2>Bước 1: Thông tin cơ bản</h2>
+            <div class="create-tour-form-group">
+                <label asp-for="Destination">Tên tour <span class="required">*</span></label>
+                <input asp-for="Destination" class="form-control" placeholder="VD: Tour khám phá Phú Yên 3 ngày 2 đêm" required />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="create-tour-form-group">
+                <label asp-for="DepartureFrom">Xuất phát từ <span class="required">*</span></label>
+                <select asp-for="DepartureFrom" class="form-control" required>
+                    <option value="">-- Chọn điểm khởi hành --</option>
+                    @foreach (var province in provinces.OrderBy(p => p))
+                    {
+                        <option value="@province">@province</option>
+                    }
+                </select>
+                <span asp-validation-for="DepartureFrom" class="text-danger"></span>
+            </div>
+            <div class="create-tour-form-row">
+                <div class="create-tour-form-group half">
+                    <label asp-for="DepartureDate">Ngày khởi hành <span class="required">*</span></label>
+                    <input asp-for="DepartureDate" type="date" class="form-control" required />
+                    <span asp-validation-for="DepartureDate" class="text-danger"></span>
+                </div>
+                <div class="create-tour-form-group half">
+                    <label asp-for="ReturnDate">Ngày kết thúc <span class="required">*</span></label>
+                    <input asp-for="ReturnDate" type="date" class="form-control" required />
+                    <span asp-validation-for="ReturnDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="create-tour-form-group">
+                <label asp-for="Duration">Thời gian (tự động tính)</label>
+                <input asp-for="Duration" class="form-control" placeholder="VD: 3 ngày 2 đêm" readonly />
+            </div>
+        </div>
+
+        <!-- Step 2: Image & Description -->
+        <div class="step-content" data-step="2" style="display: none;">
+            <h2>Bước 2: Hình ảnh & Mô tả</h2>
+            <div class="create-tour-form-group">
+                <label asp-for="ImageFile">Hình ảnh đại diện</label>
+                <input asp-for="ImageFile" type="file" class="form-control" accept="image/*" />
+                <div id="image-preview-container" class="image-preview" style="margin-top: 15px; display: none;">
+                    <img id="image-preview" src="#" alt="Xem trước ảnh" style="max-width: 100%; max-height: 250px;" />
+                </div>
+            </div>
+            <div class="create-tour-form-group">
+                <label asp-for="Description">Mô tả <span class="required">*</span></label>
+                <textarea asp-for="Description" class="form-control" rows="5" placeholder="Nhập mô tả chi tiết về tour..." required></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="create-tour-form-section">
+                <h3>Điểm nổi bật</h3>
+                <div id="highlights-container">
+                    <!-- Javascript will add items here -->
+                </div>
+                <button type="button" id="add-highlight-btn" class="add-btn">+ Thêm điểm nổi bật</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Schedule -->
+        <div class="step-content" data-step="3" style="display: none;">
+            <h2>Bước 3: Lịch trình chi tiết</h2>
+            <div class="create-tour-form-section">
+                <p class="itinerary-note">Lịch trình được tạo tự động dựa trên ngày bạn đã chọn. Hãy điền chi tiết cho mỗi ngày.</p>
+                <div id="schedule-container">
+                    <!-- Javascript will add days here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Additional Info & Summary -->
+        <div class="step-content" data-step="4" style="display: none;">
+            <h2>Bước 4: Thông tin thêm</h2>
+            <div class="create-tour-form-section">
+                <h3>Giá bao gồm</h3>
+                <div id="includes-container">
+                    <!-- Default items added by JS -->
+                </div>
+                <button type="button" id="add-include-btn" class="add-btn">+ Thêm mục</button>
+            </div>
+            <div class="create-tour-form-section">
+                <h3>Giá không bao gồm</h3>
+                <div id="excludes-container">
+                    <!-- Default items added by JS -->
+                </div>
+                <button type="button" id="add-exclude-btn" class="add-btn">+ Thêm mục</button>
+            </div>
+            <div class="create-tour-form-section">
+                <h3>Lưu ý</h3>
+                <div id="notes-container">
+                    <!-- Default items added by JS -->
+                </div>
+                <button type="button" id="add-note-btn" class="add-btn">+ Thêm mục</button>
+            </div>
+
+            <!-- Summary section -->
+            <div class="create-tour-form-section">
+                <h3>Tóm tắt lịch trình</h3>
+                <div id="summary-content" class="summary-content">
+                    <div class="summary-loading">Đang tải thông tin tóm tắt...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="form-navigation">
+            <button type="button" id="prev-btn" class="nav-btn prev-btn" style="display: none;">Quay lại</button>
+            <button type="button" id="next-btn" class="nav-btn next-btn">Tiếp theo</button>
+            <button type="submit" id="submit-btn" class="nav-btn submit-btn" style="display: none;">Tạo lịch trình</button>
+        </div>
+    </form>
+</div>
+
+<!-- Templates -->
+<template id="highlight-template">
+    <div class="highlight-item">
+        <input type="text" name="Highlights[__index__]" class="form-control" placeholder="Điểm nổi bật" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="include-template">
+    <div class="list-item">
+        <input type="text" name="Includes[__index__]" class="form-control" placeholder="Dịch vụ bao gồm" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="exclude-template">
+    <div class="list-item">
+        <input type="text" name="Excludes[__index__]" class="form-control" placeholder="Dịch vụ không bao gồm" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="note-template">
+    <div class="list-item">
+        <input type="text" name="Notes[__index__]" class="form-control" placeholder="Lưu ý" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="activity-template">
+    <div class="activity-item">
+        <input type="text" name="Schedules[__dayIndex__].Activities[__activityIndex__]" class="form-control" placeholder="VD: 08:00 - Tham quan Dinh Độc Lập" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="schedule-day-template">
+    <div class="itinerary-day">
+        <div class="day-title">
+            <div class="day-label">Ngày __dayNumber__</div>
+            <input type="text" name="Schedules[__dayIndex__].Title" class="day-location" placeholder="Nhập tiêu đề ngày" required />
+            <input type="hidden" name="Schedules[__dayIndex__].Day" value="Ngày __dayNumber__" />
+        </div>
+        <div class="day-locations">
+            <label>Địa điểm cho ngày __dayNumber__</label>
+            <select name="Schedules[__dayIndex__].LocationIds" class="form-control location-select" multiple="multiple">
+                <!-- JS sẽ điền các options vào đây -->
+            </select>
+            <small class="text-muted">Giữ Ctrl để chọn nhiều địa điểm</small>
+        </div>
+        <div class="day-activities">
+            <h4>Hoạt động trong ngày</h4>
+            <div class="activities-container">
+                <!-- Activities will be added here by JS -->
+            </div>
+            <button type="button" class="add-activity-btn add-btn">+ Thêm hoạt động</button>
+        </div>
+    </div>
+</template>
+
+@section Scripts {
+    <script src="~/js/plan-create.js" asp-append-version="true"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

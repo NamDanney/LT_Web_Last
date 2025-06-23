@@ -1,0 +1,622 @@
+﻿@model DA_Web.ViewModels.EditTourRequest
+@{
+    ViewData["Title"] = "Chỉnh sửa Kế hoạch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var locations = ViewBag.Locations as List<DA_Web.Models.Location> ?? new List<DA_Web.Models.Location>();
+    var provinces = new List<string> {
+        "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh",
+        "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau",
+        "Cần Thơ", "Cao Bằng", "Đà Nẵng", "Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai",
+        "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Nội", "Hà Tĩnh", "Hải Dương",
+        "Hải Phòng", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa", "Kiên Giang",
+        "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định",
+        "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình",
+        "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La",
+        "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang",
+        "TP Hồ Chí Minh", "Trà Vinh", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái"
+    };
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/styles/Plans/EditPlans.css" asp-append-version="true" />
+}
+
+<div class="edit-tour-container">
+    <h1>Chỉnh sửa Tour</h1>
+    <p class="edit-tour-note">
+        Chú ý: Sau khi chỉnh sửa, tour của bạn sẽ được đưa về trạng thái "Chờ duyệt" và cần được quản trị viên phê duyệt lại.
+    </p>
+
+    <form asp-action="Edit" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data" class="edit-tour-form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="CurrentImagePath" />
+
+        <!-- Location data for JavaScript -->
+        <script>
+            var allLocations = [];
+            try {
+            @if (locations != null && locations.Any())
+            {
+                <text>allLocations = @Html.Raw(Json.Serialize(locations.Select(l => new { Id = l.Id, Name = l.Name })));</text>
+            }
+            } catch (error) {
+                console.error("JSON serialization failed:", error);
+            }
+            window.allLocations = allLocations;
+        </script>
+
+        <!-- General Information -->
+        <div class="edit-tour-form-group">
+            <label asp-for="DepartureFrom">Điểm khởi hành <span class="required">*</span></label>
+            <select asp-for="DepartureFrom" class="form-control" required>
+                <option value="">-- Chọn điểm khởi hành --</option>
+                @foreach (var province in provinces.OrderBy(p => p))
+                {
+                    <option value="@province">@province</option>
+                }
+            </select>
+            <span asp-validation-for="DepartureFrom" class="text-danger"></span>
+        </div>
+
+        <div class="edit-tour-form-group">
+            <label asp-for="Destination">Tên tour <span class="required">*</span></label>
+            <input asp-for="Destination" class="form-control" placeholder="VD: Tour Sài Gòn - Đà Lạt" required />
+            <span asp-validation-for="Destination" class="text-danger"></span>
+        </div>
+
+        <!-- NEW: Date Range Selection -->
+        <div class="date-range-section">
+            <div class="date-range-inputs">
+                <div class="edit-tour-form-group date-input">
+                    <label for="StartDate">Ngày bắt đầu <span class="required">*</span></label>
+                    <input type="date" id="StartDate" name="StartDate" class="form-control" required />
+                    <span class="text-danger"></span>
+                </div>
+                <div class="edit-tour-form-group date-input">
+                    <label for="EndDate">Ngày kết thúc <span class="required">*</span></label>
+                    <input type="date" id="EndDate" name="EndDate" class="form-control" required />
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="date-range-info">
+                <div class="info-badge">
+                    <span class="info-icon">📅</span>
+                    <span class="info-text" id="dateRangeDisplay">Chọn ngày để tính thời gian</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="edit-tour-form-group">
+            <label asp-for="Duration">Thời gian <span class="required">*</span></label>
+            <input asp-for="Duration" class="form-control" placeholder="Tự động tính từ ngày đã chọn" readonly required />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+        <div class="edit-tour-form-group">
+            <label asp-for="Description">Mô tả <span class="required">*</span></label>
+            <textarea asp-for="Description" class="form-control" rows="5" placeholder="Nhập mô tả chi tiết về tour..." required></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="edit-tour-form-group image-upload-container">
+            <label asp-for="ImageFile">Hình ảnh đại diện</label>
+            <input asp-for="ImageFile" type="file" class="form-control" accept="image/*" />
+            <div class="image-previews">
+                @if (!string.IsNullOrEmpty(Model.CurrentImagePath))
+                {
+                    <div class="image-preview-wrapper" id="current-image-wrapper">
+                        <h4>Hình ảnh hiện tại</h4>
+                        <img src="@Url.Content("~" + Model.CurrentImagePath)" alt="Ảnh hiện tại" style="max-width: 300px; max-height: 200px;" />
+                    </div>
+                }
+                <div class="image-preview-wrapper" id="new-image-preview-wrapper" style="display: none;">
+                    <h4>Hình ảnh mới</h4>
+                    <img id="new-image-preview" src="#" alt="Ảnh mới" style="max-width: 300px; max-height: 200px;" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="edit-tour-form-section">
+            <h3>Điểm nổi bật</h3>
+            <div id="highlights-container">
+                @if (Model.Highlights != null && Model.Highlights.Any())
+                {
+                    @for (int i = 0; i < Model.Highlights.Count; i++)
+                    {
+                        <div class="edit-tour-highlight-input">
+                            <input asp-for="Highlights[i]" class="form-control" placeholder="Điểm nổi bật" />
+                            <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="edit-tour-highlight-input">
+                        <input name="Highlights[0]" class="form-control" placeholder="Điểm nổi bật" />
+                        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                    </div>
+                }
+            </div>
+            <button type="button" id="add-highlight-btn" class="add-btn"> Thêm điểm nổi bật</button>
+        </div>
+
+        <!-- Schedule -->
+        <div class="edit-tour-form-section">
+            <h3>Lịch trình</h3>
+            <div class="schedule-notice" id="scheduleNotice" style="display: none;">
+                <span class="notice-icon">ℹ️</span>
+                <span class="notice-text">Lịch trình sẽ được cập nhật khi bạn thay đổi ngày</span>
+            </div>
+            <div id="schedule-container">
+                @if (Model.Schedules != null && Model.Schedules.Any())
+                {
+                    @for (int i = 0; i < Model.Schedules.Count; i++)
+                    {
+                        <div class="schedule-day" data-existing="true">
+                            <div class="day-header">
+                                <h4>Ngày @(i + 1)</h4>
+                                <button type="button" class="remove-btn" onclick="removeScheduleDay(this)" style="display:none;">Xóa ngày</button>
+                            </div>
+                            <input type="hidden" asp-for="Schedules[i].Day" value="Ngày @(i + 1)" />
+
+                            <div class="form-group">
+                                <label asp-for="Schedules[i].Title">Tiêu đề ngày <span class="required">*</span></label>
+                                <input asp-for="Schedules[i].Title" class="form-control day-title-input" placeholder="VD: Khám phá Tuy Hòa" required />
+                                <small class="text-muted location-hint">Chọn địa điểm bên dưới để tự động cập nhật tiêu đề</small>
+                                <span asp-validation-for="Schedules[i].Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Địa điểm cho ngày @(i + 1)</label>
+                                <select asp-for="Schedules[i].LocationIds" class="form-control location-select" multiple="multiple" data-day-index="@i">
+                                    @foreach (var location in locations)
+                                    {
+                                        <option value="@location.Id" selected="@(Model.Schedules[i].LocationIds.Contains(location.Id) ? "selected" : null)">
+                                            @location.Name
+                                        </option>
+                                    }
+                                </select>
+                                <small class="text-muted">Giữ Ctrl để chọn nhiều địa điểm</small>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>Hoạt động trong ngày</label>
+                                <div class="activities-container">
+                                    @if (Model.Schedules[i].Activities != null && Model.Schedules[i].Activities.Any())
+                                    {
+                                        @for (int j = 0; j < Model.Schedules[i].Activities.Count; j++)
+                                        {
+                                            <div class="activity-input">
+                                                <input asp-for="Schedules[i].Activities[j]" class="form-control" placeholder="Mô tả hoạt động" />
+                                                <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="activity-input">
+                                            <input name="Schedules[@i].Activities[0]" class="form-control" placeholder="Mô tả hoạt động" />
+                                            <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                                        </div>
+                                    }
+                                </div>
+                                <button type="button" class="add-btn add-activity-btn"> Thêm hoạt động</button>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+        <!-- Includes -->
+        <div class="edit-tour-form-section">
+            <h3>Giá tour bao gồm</h3>
+            <div id="includes-container">
+                @if (Model.Includes != null && Model.Includes.Any())
+                {
+                    @for (int i = 0; i < Model.Includes.Count; i++)
+                    {
+                        <div class="item-input">
+                            <input asp-for="Includes[i]" class="form-control" placeholder="Dịch vụ bao gồm" />
+                            <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="item-input">
+                        <input name="Includes[0]" class="form-control" placeholder="Dịch vụ bao gồm" value="Xe du lịch đời mới máy lạnh" />
+                        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                    </div>
+                }
+            </div>
+            <button type="button" id="add-include-btn" class="add-btn"> Thêm dịch vụ</button>
+        </div>
+
+        <!-- Excludes -->
+        <div class="edit-tour-form-section">
+            <h3>Giá tour không bao gồm</h3>
+            <div id="excludes-container">
+                @if (Model.Excludes != null && Model.Excludes.Any())
+                {
+                    @for (int i = 0; i < Model.Excludes.Count; i++)
+                    {
+                        <div class="item-input">
+                            <input asp-for="Excludes[i]" class="form-control" placeholder="Dịch vụ không bao gồm" />
+                            <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="item-input">
+                        <input name="Excludes[0]" class="form-control" placeholder="Dịch vụ không bao gồm" value="Chi phí cá nhân" />
+                        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                    </div>
+                }
+            </div>
+            <button type="button" id="add-exclude-btn" class="add-btn"> Thêm dịch vụ</button>
+        </div>
+
+        <!-- Notes -->
+        <div class="edit-tour-form-section">
+            <h3>Lưu ý</h3>
+            <div id="notes-container">
+                @if (Model.Notes != null && Model.Notes.Any())
+                {
+                    @for (int i = 0; i < Model.Notes.Count; i++)
+                    {
+                        <div class="item-input">
+                            <input asp-for="Notes[i]" class="form-control" placeholder="Lưu ý" />
+                            <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="item-input">
+                        <input name="Notes[0]" class="form-control" placeholder="Lưu ý" value="Mang theo giấy tờ tùy thân" />
+                        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                    </div>
+                }
+            </div>
+            <button type="button" id="add-note-btn" class="add-btn"> Thêm lưu ý</button>
+        </div>
+
+        <div class="edit-tour-form-actions">
+            <a asp-action="MyPlans" class="cancel-btn">Hủy</a>
+            <button type="submit" class="submit-btn">Lưu thay đổi</button>
+        </div>
+    </form>
+</div>
+
+<!-- Templates -->
+<template id="highlight-template">
+    <div class="edit-tour-highlight-input">
+        <input type="text" name="Highlights[__index__]" class="form-control" placeholder="Điểm nổi bật" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="include-template">
+    <div class="item-input">
+        <input type="text" name="Includes[__index__]" class="form-control" placeholder="Dịch vụ bao gồm" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="exclude-template">
+    <div class="item-input">
+        <input type="text" name="Excludes[__index__]" class="form-control" placeholder="Dịch vụ không bao gồm" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="note-template">
+    <div class="item-input">
+        <input type="text" name="Notes[__index__]" class="form-control" placeholder="Lưu ý" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="activity-template">
+    <div class="activity-input">
+        <input type="text" name="Schedules[__dayIndex__].Activities[__activityIndex__]" class="form-control" placeholder="Mô tả hoạt động" />
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+    </div>
+</template>
+
+<template id="schedule-day-template">
+    <div class="schedule-day">
+        <div class="day-header">
+            <h4>Ngày __dayNumber__ - __dateDisplay__</h4>
+            <button type="button" class="remove-btn" onclick="removeScheduleDay(this)" style="display:none;">Xóa ngày</button>
+        </div>
+        <input type="hidden" name="Schedules[__dayIndex__].Day" value="Ngày __dayNumber__" />
+        <div class="form-group">
+            <label>Tiêu đề ngày <span class="required">*</span></label>
+            <input type="text" name="Schedules[__dayIndex__].Title" class="form-control day-title-input" placeholder="VD: Khám phá Tuy Hòa" required />
+            <small class="text-muted location-hint">Chọn địa điểm bên dưới để tự động cập nhật tiêu đề</small>
+        </div>
+        <div class="form-group">
+            <label>Địa điểm cho ngày __dayNumber__</label>
+            <select name="Schedules[__dayIndex__].LocationIds" class="form-control location-select" multiple="multiple" data-day-index="__dayIndex__">
+                <!-- Locations will be populated by JavaScript -->
+            </select>
+            <small class="text-muted">Giữ Ctrl để chọn nhiều địa điểm</small>
+        </div>
+        <div class="form-group mt-2">
+            <label>Hoạt động trong ngày</label>
+            <div class="activities-container">
+                <div class="activity-input">
+                    <input type="text" name="Schedules[__dayIndex__].Activities[0]" class="form-control" placeholder="Mô tả hoạt động" />
+                    <button type="button" class="remove-btn" onclick="removeItem(this)">Xóa</button>
+                </div>
+            </div>
+            <button type="button" class="add-btn add-activity-btn"> Thêm hoạt động</button>
+        </div>
+    </div>
+</template>
+
+@section Scripts {
+    <script>
+        // Store locations data globally
+        var allLocations = [];
+
+        // Initialize locations from server data
+        @if (locations != null && locations.Any())
+        {
+            <text>
+                try {
+                    allLocations = @Html.Raw(Json.Serialize(locations.Select(l => new
+                    {
+                        id = l.Id,
+                        name = l.Name
+                    })));
+                    console.log("✅ Locations loaded successfully:", allLocations.length);
+                } catch (e) {
+                    console.error("❌ Error loading locations:", e);
+                    allLocations = [];
+                }
+            </text>
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("=== CREATE PLAN INITIALIZATION ===");
+
+            // Date range handling
+            const startDateInput = document.getElementById('StartDate');
+            const endDateInput = document.getElementById('EndDate');
+            const durationInput = document.getElementById('Duration');
+            const dateRangeDisplay = document.getElementById('dateRangeDisplay');
+            const scheduleContainer = document.getElementById('schedule-container');
+            const scheduleNotice = document.getElementById('scheduleNotice');
+
+            // Set min date to today
+            const today = new Date().toISOString().split('T')[0];
+            if (startDateInput) startDateInput.min = today;
+            if (endDateInput) endDateInput.min = today;
+
+            // Date change handlers
+            function handleDateChange() {
+                const startDate = startDateInput.value ? new Date(startDateInput.value) : null;
+                const endDate = endDateInput.value ? new Date(endDateInput.value) : null;
+
+                if (startDate && endDate && startDate <= endDate) {
+                    // Calculate duration
+                    const diffTime = Math.abs(endDate - startDate);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                    const nights = diffDays - 1;
+
+                    // Update duration field
+                    durationInput.value = `${diffDays} ngày ${nights} đêm`;
+
+                    // Update date range display
+                    const startStr = startDate.toLocaleDateString('vi-VN');
+                    const endStr = endDate.toLocaleDateString('vi-VN');
+                    dateRangeDisplay.textContent = `${startStr} - ${endStr} (${diffDays} ngày ${nights} đêm)`;
+
+                    // Generate schedule days
+                    generateScheduleDays(startDate, diffDays);
+
+                    // Hide notice
+                    scheduleNotice.style.display = 'none';
+                } else {
+                    durationInput.value = '';
+                    dateRangeDisplay.textContent = 'Chọn ngày để tính thời gian';
+                    scheduleContainer.innerHTML = '';
+                    scheduleNotice.style.display = 'flex';
+                }
+            }
+
+            // Update end date min when start date changes
+            if (startDateInput) {
+                startDateInput.addEventListener('change', function() {
+                    if (this.value) {
+                        endDateInput.min = this.value;
+                        if (endDateInput.value && endDateInput.value < this.value) {
+                            endDateInput.value = this.value;
+                        }
+                    }
+                    handleDateChange();
+                });
+            }
+
+            if (endDateInput) {
+                endDateInput.addEventListener('change', handleDateChange);
+            }
+
+            // Generate schedule days based on date range
+            function generateScheduleDays(startDate, numDays) {
+                scheduleContainer.innerHTML = '';
+
+                for (let i = 0; i < numDays; i++) {
+                    const currentDate = new Date(startDate);
+                    currentDate.setDate(startDate.getDate() + i);
+
+                    const template = document.getElementById('schedule-day-template');
+                    let newHtml = template.innerHTML
+                        .replace(/__dayIndex__/g, i)
+                        .replace(/__dayNumber__/g, i + 1)
+                        .replace(/__dateDisplay__/g, currentDate.toLocaleDateString('vi-VN', {
+                            weekday: 'long',
+                            day: 'numeric',
+                            month: 'numeric',
+                            year: 'numeric'
+                        }));
+
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = newHtml;
+                    const newDayElement = tempDiv.firstElementChild;
+
+                    // Populate locations
+                    const locationSelect = newDayElement.querySelector('select[name*="LocationIds"]');
+                    if (locationSelect && allLocations && allLocations.length > 0) {
+                        locationSelect.innerHTML = '';
+                        allLocations.forEach(location => {
+                            if (location && location.id && location.name) {
+                                const option = document.createElement('option');
+                                option.value = location.id;
+                                option.textContent = location.name;
+                                locationSelect.appendChild(option);
+                            }
+                        });
+
+                        // Add change event listener for location selection
+                        locationSelect.addEventListener('change', function() {
+                            updateDayTitle(this);
+                        });
+                    }
+
+                    scheduleContainer.appendChild(newDayElement);
+
+                    // Setup activity button
+                    const addActivityBtn = newDayElement.querySelector('.add-activity-btn');
+                    if (addActivityBtn) {
+                        addActivityBtn.addEventListener('click', addActivityHandler);
+                    }
+                }
+            }
+
+            // Update day title based on selected locations
+            function updateDayTitle(selectElement) {
+                const dayDiv = selectElement.closest('.schedule-day');
+                const titleInput = dayDiv.querySelector('.day-title-input');
+                const selectedOptions = Array.from(selectElement.selectedOptions);
+
+                if (selectedOptions.length > 0) {
+                    const locationNames = selectedOptions.map(opt => opt.textContent);
+                    let title = '';
+
+                    if (locationNames.length === 1) {
+                        title = `Khám phá ${locationNames[0]}`;
+                    } else if (locationNames.length === 2) {
+                        title = `${locationNames[0]} - ${locationNames[1]}`;
+                    } else {
+                        title = `${locationNames[0]} và ${locationNames.length - 1} địa điểm khác`;
+                    }
+
+                    titleInput.value = title;
+                    titleInput.classList.add('auto-filled');
+                }
+            }
+
+            // Image preview functionality
+            const imageFileInput = document.getElementById('ImageFile');
+            if (imageFileInput) {
+                imageFileInput.addEventListener('change', function(event) {
+                    const [file] = event.target.files;
+                    if (file) {
+                        const previewWrapper = document.getElementById('new-image-preview-wrapper');
+                        const previewImg = document.getElementById('new-image-preview');
+
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewImg.src = e.target.result;
+                            previewWrapper.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            // Generic add button setup
+            function setupAddButton(buttonId, containerId, templateId) {
+                const addButton = document.getElementById(buttonId);
+                if (addButton) {
+                    addButton.addEventListener('click', function() {
+                        const container = document.getElementById(containerId);
+                        const template = document.getElementById(templateId);
+                        const index = container.children.length;
+
+                        const newHtml = template.innerHTML.replace(/__index__/g, index);
+                        container.insertAdjacentHTML('beforeend', newHtml);
+                    });
+                }
+            }
+
+            // Setup add buttons
+            setupAddButton('add-highlight-btn', 'highlights-container', 'highlight-template');
+            setupAddButton('add-include-btn', 'includes-container', 'include-template');
+            setupAddButton('add-exclude-btn', 'excludes-container', 'exclude-template');
+            setupAddButton('add-note-btn', 'notes-container', 'note-template');
+
+            // Activity handler
+            function addActivityHandler(event) {
+                event.preventDefault();
+                const dayDiv = event.target.closest('.schedule-day');
+                const activitiesContainer = dayDiv.querySelector('.activities-container');
+                const activityTemplate = document.getElementById('activity-template');
+
+                const scheduleContainer = document.getElementById('schedule-container');
+                const dayIndex = Array.from(scheduleContainer.children).indexOf(dayDiv);
+                const activityIndex = activitiesContainer.children.length;
+
+                let newHtml = activityTemplate.innerHTML
+                    .replace(/__dayIndex__/g, dayIndex)
+                    .replace(/__activityIndex__/g, activityIndex);
+
+                activitiesContainer.insertAdjacentHTML('beforeend', newHtml);
+            }
+
+            // Global remove functions
+            window.removeItem = function(button) {
+                const itemToRemove = button.closest('.edit-tour-highlight-input, .item-input, .activity-input');
+                if (itemToRemove) {
+                    const container = itemToRemove.parentElement;
+                    itemToRemove.remove();
+                    reindexContainer(container);
+                }
+            }
+
+            window.removeScheduleDay = function(button) {
+                // Schedule days are auto-generated, so we don't allow removal
+                alert('Lịch trình được tạo tự động dựa trên ngày đã chọn. Vui lòng thay đổi ngày bắt đầu/kết thúc để điều chỉnh số ngày.');
+            }
+
+            // Reindex functions
+            function reindexContainer(container) {
+                if (!container || !container.children.length) return;
+
+                const firstInput = container.querySelector('input, textarea, select');
+                if (!firstInput) return;
+
+                const baseName = firstInput.name.replace(/\[\d+\].*/, '');
+
+                Array.from(container.children).forEach((item, index) => {
+                    const inputs = item.querySelectorAll('input, textarea, select');
+                    inputs.forEach(input => {
+                        const suffix = input.name.substring(input.name.indexOf(']') + 1);
+                        input.name = `${baseName}[${index}]${suffix}`;
+                    });
+                });
+            }
+
+            console.log("=== CREATE PLAN READY ===");
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

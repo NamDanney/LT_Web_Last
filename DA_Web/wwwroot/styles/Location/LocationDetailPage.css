@@ -1,0 +1,798 @@
+﻿/* sad */
+
+.location-detail-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Main Content: Chia 2 cột */
+.main-location-content {
+    display: flex;
+    gap: 30px;
+}
+
+/* Cột trái: Nội dung chính */
+.content-left {
+    flex: 3; /* Chiếm khoảng 75% */
+    background-color: var(--content-bg);
+    padding: 2rem 2.5rem; /* Add more horizontal padding */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07); /* Softer shadow */
+    border: 1px solid var(--content-border-light-color);
+}
+
+    /* Tiêu đề bài viết */
+    .content-left h1 {
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+/* Thông tin bài viết */
+.article-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+    .share-buttons button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+/* Hình ảnh chính */
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Nội dung bài viết */
+.content-left p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Các section */
+.weather, .intro, .highlight, .timing, .travel, .map, .gallery-location, .food, .tips, .photo-upload {
+/*    margin-bottom: 30px;*/
+}
+
+    .weather h2, .intro h2, .highlight-location h2, .timing h2, .travel h2, .gallery-location h2, .food h2, .tips h2, .photo-upload h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .weather div {
+        background-color: #e8ecef;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .weather p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .weather img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .intro img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+.highlight-grid, .food-grid, .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+    .highlight-location-grid img, .gallery-location img, .food-grid img, .image-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+.gallery-grid {
+    justify-content: center;
+}
+
+.timing ul li, .tips ul li, .travel-details-location li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.travel-details-location h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.travel-details-location .tip {
+    background-color: #e8ecef;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Photo Upload Section */
+.upload__image-wrapper button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+    .upload__image-wrapper button:first-child {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .upload__image-wrapper button:first-child:hover {
+            background-color: red;
+        }
+
+    .upload__image-wrapper button:nth-child(2) {
+        background-color: #dc3545;
+        color: white;
+    }
+
+.image-item__btn-wrapper {
+    margin-top: 10px;
+}
+
+    .image-item__btn-wrapper button {
+        padding: 5px 10px;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+
+        .image-item__btn-wrapper button:first-child {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .image-item__btn-wrapper button:last-child {
+            background-color: #dc3545;
+            color: white;
+        }
+
+/* Map section styling */
+.map-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.map-loading {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.map-container {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#mapContainer {
+    height: 400px;
+    width: 100%;
+    z-index: 1; /* Ensure proper stacking context */
+}
+
+.map-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.map-popup h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.map-popup p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Ensure proper button styling for map controls */
+#centerMapBtn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    background-color: #0d6efd;
+    border: 1px solid #0d6efd;
+    color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+    #centerMapBtn:hover {
+        background-color: #0a58ca;
+    }
+
+/* Error message styling */
+#mapError {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #fff3cd;
+    color: #664d03;
+    border: 1px solid #ffecb5;
+}
+
+/* Make sure Leaflet controls have proper z-index */
+.leaflet-control {
+    z-index: 10 !important;
+}
+
+/* Ensure leaflet is properly visible */
+.leaflet-container {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0.5rem;
+}
+
+/* Make sure the map doesn't get hidden by other elements */
+#map {
+    position: relative;
+    z-index: 1;
+}
+
+/* Cột phải: Mục lục và gợi ý */
+.content-right {
+    flex: 1; /* Chiếm khoảng 25% */
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+    .content-right h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .content-right ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .content-right ul li {
+            font-size: 14px;
+            color: #007bff;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+            .content-right ul li:hover {
+                text-decoration: underline;
+            }
+
+/* ============================================= */
+/* Sidebar Styles for Location Detail Page       */
+/* ============================================= */
+
+/*
+  Lưu ý về selectors:
+  Các selectors như .content-right > div:nth-child(1) phụ thuộc vào thứ tự
+  của các div sections trong component Sidebar.js.
+  Nếu section "Gần địa điểm" không hiển thị (do location.nearby rỗng),
+  thì .content-right > div:nth-child(2) sẽ áp dụng cho section "Top khách sạn".
+  Để các style này ổn định hơn, bạn nên thêm class CSS riêng cho từng section
+  trong file Sidebar.js (ví dụ: <div className="mb-8 sidebar-toc-section">).
+*/
+
+:root {
+    --sidebar-bg: #ffffff;
+    --sidebar-border-color: #e5e7eb; /* Tailwind gray-200 */
+    --sidebar-shadow-color: rgba(0, 0, 0, 0.05);
+    --sidebar-title-text-color: #1f2937; /* Tailwind gray-800 */
+    --sidebar-title-border-color: #f3f4f6; /* Tailwind gray-100 */
+
+    --sidebar-item-text-color: #4b5563; /* Tailwind gray-600 */
+    --sidebar-item-icon-color: #9ca3af; /* Tailwind gray-400 */
+    --sidebar-item-hover-bg: #f9fafb; /* Tailwind gray-50 */
+    /* Accent colors for different sections */
+    --sidebar-accent-toc: #2563eb; /* Tailwind blue-600 */
+    --sidebar-accent-toc-hover-bg: #eff6ff; /* Tailwind blue-50 */
+    --sidebar-accent-toc-hover-text: #1d4ed8; /* Tailwind blue-700 */
+
+    --sidebar-accent-nearby: #db2777; /* Tailwind pink-600 */
+    --sidebar-accent-nearby-hover-bg: #fce7f3; /* Tailwind pink-50 */
+    --sidebar-accent-nearby-hover-text: #be185d; /* Tailwind pink-700 */
+
+    --sidebar-accent-hotels: #f59e0b; /* Tailwind amber-500 */
+    --sidebar-accent-hotels-hover-bg: #fffbeb; /* Tailwind amber-50 */
+    --sidebar-accent-hotels-hover-text: #b45309; /* Tailwind amber-700 */
+}
+
+/* ============================================= */
+/* Main Content Styles for Location Detail Page  */
+/* ============================================= */
+
+:root {
+    --content-bg: #ffffff;
+    --content-text-color: #374151; /* Tailwind gray-700 */
+    --content-heading-color: #111827; /* Tailwind gray-900 */
+    --content-link-color: #3b82f6; /* Tailwind blue-500 */
+    --content-link-hover-color: #2563eb; /* Tailwind blue-600 */
+    --content-border-light-color: #e5e7eb; /* Tailwind gray-200 */
+    --content-border-medium-color: #d1d5db; /* Tailwind gray-300 */
+    --section-padding-y: 2rem; /* Vertical padding for sections */
+    --section-margin-bottom: 2.5rem; /* Space between sections */
+    /* --font-primary: Arial, Helvetica, sans-serif; /* Already defined in .location-detail-page */
+}
+
+.location-detail-page {
+    background-color: #f9fafb; /* Light gray background for the whole page */
+    padding-top: 1.5rem; /* Add some padding at the top of the page */
+    padding-bottom: 1.5rem; /* Add some padding at the bottom of the page */
+}
+
+/* Main Title and Subtitle */
+.content-left > h1 {
+    /* Tailwind: text-3xl font-bold mb-2 */
+    color: var(--content-heading-color);
+    font-size: 2.25rem; /* Tailwind text-3xl is 1.875rem, this is larger like text-4xl */
+    line-height: 1.25;
+    margin-bottom: 0.5rem; /* Tailwind mb-2 */
+}
+
+.content-left > p:first-of-type {
+    /* Tailwind: text-lg text-gray-600 mb-4 */
+    /* This targets the subtitle if it's the first paragraph after h1 */
+    color: #4b5563; /* Tailwind gray-600 */
+    font-size: 1.125rem; /* Tailwind text-lg */
+    line-height: 1.6;
+    margin-bottom: var(--section-margin-bottom);
+}
+
+/* Generic Section Styling */
+/* Targets divs with an 'id' attribute, assuming these are section roots from components */
+.content-left > div[id] {
+    margin-bottom: var(--section-margin-bottom);
+    padding-top: var(--section-padding-y);
+    border-top: 1px solid var(--content-border-light-color);
+}
+
+    /* First actual section (e.g., IntroSection) */
+    .content-left > div[id]:first-of-type {
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .content-left > div[id]:last-of-type {
+        margin-bottom: 0;
+    }
+
+/* Section Headings (e.g., H2 or H3 inside section components) */
+.content-left div[id] h2,
+.content-left div[id] .section-title { /* .section-title is a common class you might add in components */
+    color: var(--content-heading-color);
+    font-size: 1.75rem; /* ~text-2xl */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+}
+
+    .content-left div[id] h2 i, /* Icon before section title */
+    .content-left div[id] .section-title i {
+        margin-right: 0.75rem;
+        font-size: 1.5rem;
+        color: var(--content-link-color);
+    }
+
+.content-left div[id] h3 {
+    color: var(--content-heading-color);
+    font-size: 1.375rem; /* ~text-xl */
+    font-weight: 600;
+    margin-top: 1.75rem; /* Space above H3 if it's a sub-heading */
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+/* Paragraphs within sections */
+.content-left div[id] p {
+    color: var(--content-text-color);
+    font-size: 1rem; /* text-base */
+    line-height: 1.75; /* Increased for better readability */
+    margin-bottom: 1.25rem;
+}
+
+    .content-left div[id] p:last-child {
+        margin-bottom: 0;
+    }
+
+/* Lists within sections */
+.content-left div[id] ul,
+.content-left div[id] ol {
+    color: var(--content-text-color);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    padding-left: 1.75rem; /* Slightly more indentation */
+}
+
+    .content-left div[id] ul li,
+    .content-left div[id] ol li {
+        margin-bottom: 0.6rem;
+    }
+
+.content-left div[id] ul {
+    list-style-type: disc;
+}
+
+.content-left div[id] ol {
+    list-style-type: decimal;
+}
+
+    .content-left div[id] ul li::marker,
+    .content-left div[id] ol li::marker {
+        color: var(--content-link-color);
+    }
+
+/* Images within sections */
+.content-left div[id] img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: block;
+    border: 1px solid var(--content-border-light-color); /* Subtle border for images */
+}
+
+/* Links within sections */
+.content-left div[id] a {
+    color: var(--content-link-color);
+    text-decoration: none;
+    font-weight: 500; /* Tailwind font-medium */
+    transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+
+    .content-left div[id] a:hover {
+        color: var(--content-link-hover-color);
+        text-decoration: underline;
+    }
+
+/* Specific styling for Map Section */
+.content-left div#map {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--content-border-light-color);
+}
+
+/* Styling for Weather Section (example) */
+.content-left div#weather .weather-card { /* Assuming a wrapper with class .weather-card */
+    background-color: #f9fafb; /* Tailwind gray-50 */
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--content-border-light-color);
+    margin-top: 1rem; /* Add some space if it's directly after a heading */
+}
+
+.content-left div#weather .weather-temp {
+    font-size: 2.5rem;
+    font-weight: 700; /* bold */
+    color: var(--content-heading-color);
+}
+
+.content-left div#weather .weather-description {
+    font-size: 1.1rem;
+    color: var(--content-text-color);
+    text-transform: capitalize;
+}
+
+/* Styling for Gallery Section (example for image grids) */
+.content-left div#gallery .gallery-grid { /* Assuming a .gallery-grid class in GallerySection */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+    .content-left div#gallery .gallery-grid img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        margin-bottom: 0;
+    }
+
+/* "Quay lại danh sách" Link */
+.content-left > a.text-blue-500 {
+    display: inline-block;
+    margin-top: var(--section-margin-bottom);
+    margin-bottom: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+    color: var(--content-link-color);
+    text-decoration: none;
+    border: 1px solid var(--content-link-color);
+    border-radius: 0.375rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+    .content-left > a.text-blue-500:hover {
+        background-color: var(--content-link-color);
+        color: white;
+        text-decoration: none;
+    }
+
+/* Blockquotes */
+.content-left blockquote {
+    border-left: 4px solid var(--content-link-color);
+    padding: 0.5rem 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #f9fafb; /* Tailwind gray-50 */
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+    .content-left blockquote p {
+        color: #4b5563; /* Tailwind gray-600 */
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
+
+        .content-left blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+/* Horizontal rule */
+.content-left hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--content-border-medium-color);
+    margin: 2.5rem 0; /* More spacing for HR */
+}
+
+/* Custom Scrollbar for Webkit browsers */
+.content-right::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content-right::-webkit-scrollbar-track {
+    background: transparent; /* Or var(--sidebar-bg) */
+}
+
+.content-right::-webkit-scrollbar-thumb {
+    background-color: var(--sidebar-border-color);
+    border-radius: 6px;
+}
+
+    .content-right::-webkit-scrollbar-thumb:hover {
+        background-color: #d1d5db; /* Tailwind gray-300 */
+    }
+
+/* Sidebar Sections */
+.content-right > div { /* Direct children divs are considered sections */
+    margin-bottom: 2rem;
+}
+
+    .content-right > div:last-child {
+        margin-bottom: 0;
+    }
+
+.content-right h3 {
+    font-size: 1.05rem;
+    font-weight: 600; /* Tailwind font-semibold */
+    color: var(--sidebar-title-text-color);
+    margin-bottom: 1rem; /* Tailwind mb-4 */
+    padding-bottom: 0.75rem; /* Tailwind pb-3 */
+    border-bottom: 1px solid var(--sidebar-title-border-color);
+    display: flex;
+    align-items: center; /* Tailwind items-center */
+}
+
+    .content-right h3 i {
+        margin-right: 0.5rem; /* Tailwind mr-2 */
+        font-size: 1.2em; /* Relative to h3 font-size for scalability */
+        /* Colors for title icons are primarily set by Tailwind classes in Sidebar.js */
+        /* e.g., .text-blue-600, .text-rose-500, .text-amber-500 */
+    }
+        /* Ensuring specific title icon colors from JS Tailwind classes are applied if not overridden */
+        .content-right h3 i.text-blue-600 {
+            color: var(--sidebar-accent-toc);
+        }
+
+        .content-right h3 i.text-rose-500 {
+            color: var(--sidebar-accent-nearby);
+        }
+
+        .content-right h3 i.text-amber-500 {
+            color: var(--sidebar-accent-hotels);
+        }
+
+
+.content-right ul {
+    list-style: none; /* Tailwind list-none */
+    padding: 0; /* Tailwind p-0 */
+    margin: 0; /* Tailwind m-0 */
+}
+
+    .content-right ul li {
+        display: flex; /* Tailwind flex */
+        align-items: center; /* Tailwind items-center */
+        padding: 0.6rem 0.5rem;
+        border-radius: 0.375rem; /* Tailwind rounded-md */
+        color: var(--sidebar-item-text-color);
+        transition: background-color 0.15s ease-out, color 0.15s ease-out, transform 0.15s ease-out;
+        margin-bottom: 0.125rem; /* Simulates Tailwind space-y-0.5 */
+    }
+
+        .content-right ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-right ul li i {
+            margin-right: 0.75rem; /* Tailwind mr-3 */
+            font-size: 1rem; /* Tailwind text-base */
+            width: 18px;
+            text-align: center;
+            color: var(--sidebar-item-icon-color);
+            transition: color 0.15s ease-out;
+        }
+
+        .content-right ul li a,
+        .content-right ul li span { /* Target both links and spans for text styling */
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: var(--sidebar-item-text-color); /* Default text color */
+            text-decoration: none;
+            flex-grow: 1;
+            transition: color 0.15s ease-out;
+        }
+
+/* --- "Trong bài viết này" (TOC) Section Styling --- */
+/* Assumes TOC is the first direct child div of .content-right */
+.content-right > div:nth-child(1) ul li {
+    cursor: pointer; /* Tailwind cursor-pointer */
+}
+
+    .content-right > div:nth-child(1) ul li:hover {
+        background-color: var(--sidebar-accent-toc-hover-bg);
+        transform: translateX(4px);
+    }
+
+        .content-right > div:nth-child(1) ul li:hover i {
+            color: var(--sidebar-accent-toc);
+        }
+
+        .content-right > div:nth-child(1) ul li:hover span {
+            color: var(--sidebar-accent-toc-hover-text);
+        }
+
+    .content-right > div:nth-child(1) ul li i { /* Default icon color for TOC items */
+        color: var(--sidebar-accent-toc);
+    }
+
+/* --- "Gần địa điểm" Section Styling --- */
+/* This targets the second direct child div of .content-right.
+   This will apply to "Gần địa điểm" if it's present and is the second section.
+   If "Gần địa điểm" is not rendered, these styles might unintentionally target "Top khách sạn".
+*/
+.content-right > div:nth-child(2) ul li:hover {
+    background-color: var(--sidebar-accent-nearby-hover-bg);
+    transform: translateX(4px);
+}
+
+    .content-right > div:nth-child(2) ul li:hover i.bi-pin-map { /* Target specific icon */
+        color: var(--sidebar-accent-nearby);
+    }
+
+    .content-right > div:nth-child(2) ul li:hover a {
+        color: var(--sidebar-accent-nearby-hover-text);
+        text-decoration: underline; /* Tailwind group-hover:underline */
+    }
+
+.content-right > div:nth-child(2) ul li i.bi-pin-map { /* Default icon color */
+    color: var(--sidebar-accent-nearby);
+}
+
+/* --- "Top khách sạn" Section Styling --- */
+/* This targets the last direct child of .content-right. */
+.content-right > div:last-child ul li:hover {
+    background-color: var(--sidebar-accent-hotels-hover-bg);
+    transform: translateX(4px);
+}
+
+    .content-right > div:last-child ul li:hover i.bi-star { /* Target specific icon */
+        color: var(--sidebar-accent-hotels);
+    }
+
+    .content-right > div:last-child ul li:hover span {
+        color: var(--sidebar-accent-hotels-hover-text);
+    }
+
+.content-right > div:last-child ul li i.bi-star { /* Default icon color */
+    color: var(--sidebar-accent-hotels);
+}
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#mapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.leaflet-popup-content {
+    margin: 8px 12px;
+}
+
+.map-popup h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.map-popup p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.leaflet-control-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

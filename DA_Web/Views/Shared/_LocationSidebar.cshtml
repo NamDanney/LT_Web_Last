@@ -1,0 +1,92 @@
+﻿@model DA_Web.Models.Location
+
+<div class="content-right w-full md:w-1/4 bg-slate-50 p-6 rounded-lg shadow-lg sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <!-- Table of Contents -->
+    <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-3 pb-2 border-b border-slate-300 flex items-center">
+            <i class="bi bi-list-ul mr-3 text-blue-600"></i>
+            Trong bài viết này
+        </h3>
+        <ul class="list-none p-0 m-0 space-y-1">
+            <li onclick="scrollToSection('intro')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-info-circle mr-3 text-blue-500"></i>
+                <span>Giới thiệu</span>
+            </li>
+            <li onclick="scrollToSection('highlight')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-stars mr-3 text-blue-500"></i>
+                <span>Vì sao bạn nên ghé thăm?</span>
+            </li>
+            <li onclick="scrollToSection('timing')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-calendar-check mr-3 text-blue-500"></i>
+                <span>Thời điểm lý tưởng</span>
+            </li>
+            <li onclick="scrollToSection('weather')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-thermometer-sun mr-3 text-blue-500"></i>
+                <span>Thời tiết hiện tại</span>
+            </li>
+            <li onclick="scrollToSection('travel')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-signpost-split mr-3 text-blue-500"></i>
+                <span>Thông tin di chuyển</span>
+            </li>
+            <li onclick="scrollToSection('map')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-map mr-3 text-blue-500"></i>
+                <span>Bản đồ địa điểm</span>
+            </li>
+            <li onclick="scrollToSection('gallery')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-images mr-3 text-blue-500"></i>
+                <span>Trải nghiệm tại địa điểm</span>
+            </li>
+            <li onclick="scrollToSection('food')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-egg-fried mr-3 text-blue-500"></i>
+                <span>Ẩm thực đặc sắc</span>
+            </li>
+            <li onclick="scrollToSection('tips')" class="flex items-center p-2 rounded-md text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 cursor-pointer group">
+                <i class="bi bi-exclamation-triangle mr-3 text-blue-500"></i>
+                <span>Lưu ý khi tham quan</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Nearby Locations -->
+    @if (Model.NearbyLocations?.Any() == true)
+    {
+        <div class="mb-8">
+            <h3 class="text-lg font-semibold text-slate-800 mb-3 pb-2 border-b border-slate-300 flex items-center">
+                <i class="bi bi-geo-alt-fill mr-3 text-rose-500"></i>
+                Gần địa điểm
+            </h3>
+            <ul class="list-none p-0 m-0 space-y-1">
+                @foreach (var nearby in Model.NearbyLocations)
+                {
+                    <li class="flex items-center p-2 rounded-md text-slate-700 hover:bg-slate-200 transition-colors duration-150 group">
+                        <i class="bi bi-pin-map mr-3 text-base text-slate-500 group-hover:text-rose-600"></i>
+                        <a asp-action="Details" asp-route-id="@nearby.NearbyLocationId"
+                           class="text-slate-700 group-hover:text-rose-600 group-hover:underline">
+                            @nearby.Nearby.Name
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+
+    <!-- Hotels -->
+    @if (Model.LocationHotels?.Any() == true)
+    {
+        <div class="mb-8">
+            <h3 class="text-lg font-semibold text-slate-800 mb-3 pb-2 border-b border-slate-300 flex items-center">
+                <i class="bi bi-building-check mr-3 text-amber-500"></i>
+                Top khách sạn
+            </h3>
+            <ul class="list-none p-0 m-0 space-y-1">
+                @foreach (var hotel in Model.LocationHotels)
+                {
+                    <li class="flex items-center p-2 rounded-md text-slate-700 hover:bg-slate-200 transition-colors duration-150 group">
+                        <i class="bi bi-star mr-3 text-base text-amber-500"></i>
+                        <span class="text-slate-700 group-hover:text-amber-600">@hotel.Hotel.Name</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

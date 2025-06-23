@@ -1,0 +1,119 @@
+@model IEnumerable<DA_Web.Models.Tour>
+@using DA_Web.Models.Enums
+
+@{
+    ViewData["Title"] = "Lịch trình của tôi";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/styles/Plans/MyPlans.css" asp-append-version="true" />
+}
+
+@{
+    (string, string, string) GetStatusInfo(TourStatus status)
+    {
+        return status switch
+        {
+            TourStatus.approved => ("approved", "Đã duyệt", "Lịch trình của bạn đã được duyệt và hiển thị công khai."),
+            TourStatus.rejected => ("rejected", "Bị từ chối", "Lịch trình của bạn đã bị từ chối. Vui lòng chỉnh sửa và gửi lại."),
+            _ => ("pending", "Chờ duyệt", "Lịch trình của bạn đang chờ quản trị viên xét duyệt."),
+        };
+    }
+}
+
+<div class="user-tours-container">
+    <div class="page-header">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-controller="Plans" asp-action="Create" class="btn btn-primary create-tour-btn">
+            <i class="bi bi-plus-circle"></i> Tạo Lịch trình mới
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon">🏖️</div>
+            <h3>Bạn chưa có lịch trình nào</h3>
+            <p>Hãy bắt đầu tạo lịch trình đầu tiên của bạn.</p>
+            <a asp-controller="Plans" asp-action="Create" class="btn btn-primary create-first-tour-btn">Tạo lịch trình ngay</a>
+        </div>
+    }
+    else
+    {
+        <div class="user-tour-list">
+            @foreach (var tour in Model)
+            {
+                var (statusClass, statusText, statusMessage) = GetStatusInfo(tour.Status);
+
+                <div class="user-tour-item">
+                    <div class="tour-preview">
+                        <div class="tour-image">
+                            <img src="@Url.Content(tour.Image ?? "~/images/placeholder.jpg")" alt="@tour.Destination" onerror="this.onerror=null;this.src='/images/placeholder.jpg';" />
+                        </div>
+                        <div class="tour-details">
+                            <h3 class="tour-title">@tour.Destination</h3>
+                            <div class="tour-info">
+                                <p><strong>Khởi hành:</strong> @tour.DepartureFrom</p>
+                                <p><strong>Thời gian:</strong> @tour.Duration</p>
+                            </div>
+                            <div class="tour-status">
+                                <div class="status-badge @statusClass">
+                                    @statusText
+                                </div>
+                                <p class="status-message">@statusMessage</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tour-actions">
+                        <a asp-controller="Plans" asp-action="Details" asp-route-id="@tour.Id" class="btn btn-info">Xem chi tiết</a>
+
+                        <a asp-controller="Plans" asp-action="Edit" asp-route-id="@tour.Id" class="btn btn-warning">Chỉnh sửa</a>
+
+                        <button type="button" class="btn btn-danger delete-btn" data-id="@tour.Id" data-name="@tour.Destination">Xóa</button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const tourId = e.target.dataset.id;
+                    const tourName = e.target.dataset.name;
+
+                    if (confirm(`Bạn có chắc chắn muốn xóa lịch trình "${tourName}" không? Hành động này không thể hoàn tác.`)) {
+                        // We need the RequestVerificationToken
+                        const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                        fetch(`/plans/delete/${tourId}`, {
+                            method: 'POST',
+                            headers: {
+                                'RequestVerificationToken': token,
+                                'Content-Type': 'application/json'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert(data.message);
+                                // Find the tour item and remove it from the view
+                                e.target.closest('.user-tour-item').remove();
+                            } else {
+                                alert(`Lỗi: ${data.message}`);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Đã xảy ra lỗi không mong muốn khi xóa.');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+} 

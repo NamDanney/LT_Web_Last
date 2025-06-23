@@ -1,0 +1,267 @@
+﻿/* Hero Section */
+.locations-page {
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+.locations-hero {
+    position: relative;
+    height: 300px;
+    background-image: url('https://media.vietnamplus.vn/images/fbc23bef0d088b23a8965bce49f85a616dd09502c67ffac82384b254e9d6d594a2d3119ae88d0390278bdcc3a054fb7b/phu_yen_4.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 40px;
+}
+
+.locations-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+}
+
+.locations-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding-top: 100px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Container & Filters */
+.locations-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.locations-filters {
+    margin-bottom: 30px;
+}
+
+.filter-search {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 16px 48px;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.clear-search {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+}
+
+.filter-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    color: #222;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+    .filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .filter-btn.active {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+/* Location Cards */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.location-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+    .location-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+.location-card-media {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.location-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.location-card:hover .location-card-image img {
+    transform: scale(1.1);
+}
+
+.location-card-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: rgba(255,255,255,0.9);
+    color: #0d6efd;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.location-card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.location-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.location-card-description {
+    color: #777;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.location-card-action {
+    color: #0d6efd;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.location-card:hover .location-card-action i {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* Empty State */
+.locations-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.reset-filter-btn {
+    padding: 12px 24px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .locations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .filter-categories {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .locations-hero {
+        height: 220px;
+    }
+}
