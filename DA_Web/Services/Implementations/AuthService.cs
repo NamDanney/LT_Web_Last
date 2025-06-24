@@ -18,12 +18,14 @@ namespace DA_Web.Services.Implementations
         private readonly ApplicationDbContext _context;
         private readonly JwtHelper _jwtHelper;
         private readonly IEmailService _emailService;
+        private readonly IFileService _fileService;
 
-        public AuthService(ApplicationDbContext context, JwtHelper jwtHelper, IEmailService emailService)
+        public AuthService(ApplicationDbContext context, JwtHelper jwtHelper, IEmailService emailService, IFileService fileService)
         {
             _context = context;
             _jwtHelper = jwtHelper;
             _emailService = emailService;
+            _fileService = fileService;
         }
 
         private string GenerateOtp()
@@ -224,34 +226,48 @@ namespace DA_Web.Services.Implementations
         {
             try
             {
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+                var user = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Email == email);
+
+                // Nếu không tìm thấy người dùng, chúng ta không làm gì cả (không tạo OTP, không gửi mail)
+                // nhưng vẫn trả về một thông báo thành công chung để bảo mật.
                 if (user == null)
                 {
-                    return ApiResponse<bool>.SuccessResult(true, "If an account with that email exists, a password reset OTP has been sent.");
+                    // Trả về thành công để tránh email enumeration
+                    return ApiResponse<bool>.SuccessResult(true, "Nếu email của bạn tồn tại trong hệ thống, một mã OTP đã được gửi.");
                 }
 
+                // Nếu người dùng tồn tại, tiếp tục quy trình
                 var otp = GenerateOtp();
                 var userOtp = new UserOtp
                 {
                     Email = email,
                     Otp = otp,
                     CreatedAt = DateTime.UtcNow,
-                    ExpiresAt = DateTime.UtcNow.AddMinutes(15),
+                    ExpiresAt = DateTime.UtcNow.AddMinutes(15), // OTP có hiệu lực 15 phút
                     Used = false
                 };
+
+                // Xóa các OTP cũ của email này trước khi thêm mới
+                var existingOtps = _context.UserOtps.Where(o => o.Email == email);
+                _context.UserOtps.RemoveRange(existingOtps);
+                
                 _context.UserOtps.Add(userOtp);
                 await _context.SaveChangesAsync();
 
                 var emailSubject = "Yêu cầu đặt lại mật khẩu - Phú Yên Travel";
-                var emailMessage = $"<p>Bạn đã yêu cầu đặt lại mật khẩu.</p><p>Mã OTP của bạn là: <strong>{otp}</strong></p><p>Mã này sẽ hết hạn sau 15 phút.</p>";
+                var emailMessage = $"<p>Bạn (hoặc ai đó) đã yêu cầu đặt lại mật khẩu cho tài khoản của bạn.</p>" +
+                                   $"<p>Mã OTP của bạn là: <strong>{otp}</strong></p>" +
+                                   $"<p>Mã này sẽ hết hạn sau 15 phút. Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này.</p>";
                 await _emailService.SendEmailAsync(email, emailSubject, emailMessage);
 
-                return ApiResponse<bool>.SuccessResult(true, "If an account with that email exists, a password reset OTP has been sent.");
+                return ApiResponse<bool>.SuccessResult(true, "Nếu email của bạn tồn tại trong hệ thống, một mã OTP đã được gửi.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Forgot Password Error: {ex.Message}");
-                return ApiResponse<bool>.ErrorResult("An error occurred.");
+                // Ghi log lỗi chi tiết
+                Console.WriteLine($"[ERROR] ForgotPasswordAsync: {ex.Message}");
+                // Trả về lỗi chung cho người dùng
+                return ApiResponse<bool>.ErrorResult("Đã có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại sau.");
             }
         }
 
@@ -301,7 +317,17 @@ namespace DA_Web.Services.Implementations
 
                 user.FullName = updateDto.FullName;
                 user.Phone = updateDto.Phone;
-                // user.Avatar = updateDto.Avatar; // Tạm thời comment lại, sẽ xử lý upload file sau
+                if (updateDto.AvatarFile != null)
+                {
+                    var uploadPath = "avatars";
+                    
+                    var newAvatarPath = await _fileService.SaveFileAsync(updateDto.AvatarFile, uploadPath);
+                    if (newAvatarPath == null)
+                    {
+                        return ApiResponse<bool>.ErrorResult("Không thể lưu ảnh đại diện.");
+                    }
+                    user.Avatar = newAvatarPath;
+                }
                 user.UpdatedAt = DateTime.UtcNow;
                 await _context.SaveChangesAsync();
 

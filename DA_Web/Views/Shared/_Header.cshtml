@@ -38,15 +38,10 @@
                         <div class="dropdown user-menu">
                             <div class="user-info" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
                                 <div class="user-avatar">
-                                    @* 
-                                    SỬA LỖI TẠI ĐÂY: Thêm style để quy định kích thước cho ảnh.
-                                    Đây là nguyên nhân chính khiến ảnh không hiển thị.
-                                    *@
                                     <img id="header-user-avatar"
                                          src="@(User.FindFirstValue("Avatar") ?? "/images/default-avatar.png")"
                                          alt="User Avatar"
-                                         class="rounded-circle"
-                                         style="width: 35px; height: 35px; object-fit: cover;" />
+                                         class="rounded-circle" />
                                 </div>
                                 <span class="user-name">
                                     @(User.FindFirstValue(ClaimTypes.GivenName) ?? User.Identity.Name)

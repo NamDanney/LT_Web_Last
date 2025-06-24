@@ -9,5 +9,6 @@ namespace DA_Web.Services.Interfaces
         Task<string> SaveFileAsync(IFormFile file, string subfolder);
         Task<List<string>> SaveFilesAsync(List<IFormFile> files, string subfolder);
         void DeleteFile(string relativeFilePath);
+        Task DeleteFileAsync(string relativeFilePath);
     }
 }

@@ -441,6 +441,10 @@
       "PackagePath": "staticwebassets\\styles\\Plans\\EditPlans.css"
     },
     {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Plans\\Index.css",
+      "PackagePath": "staticwebassets\\styles\\Plans\\Index.css"
+    },
+    {
       "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\styles\\Plans\\MyPlans.css",
       "PackagePath": "staticwebassets\\styles\\Plans\\MyPlans.css"
     },
@@ -1325,12 +1329,12 @@
       "PackagePath": "staticwebassets\\uploads\\review_images\\review-4-1-1749225395561-304387799.jpg"
     },
     {
-      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_2\\060e6d23-e195-4249-a035-84953897c64c_dao-cu-lao-mai-nha-phu-yen-768x680.jpg",
-      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_2\\060e6d23-e195-4249-a035-84953897c64c_dao-cu-lao-mai-nha-phu-yen-768x680.jpg"
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_3\\b0bed268-ee4c-404f-a1a6-701e76f6c0d4_errorCui.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_3\\b0bed268-ee4c-404f-a1a6-701e76f6c0d4_errorCui.jpg"
     },
     {
-      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_2\\87ce1f2f-7e73-4fb1-a389-49136a75bd90_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg",
-      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_2\\87ce1f2f-7e73-4fb1-a389-49136a75bd90_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg"
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_3\\ca835232-2cd2-4927-afaf-a83f6bf8616e_errorExp.jpg",
+      "PackagePath": "staticwebassets\\uploads\\reviews\\tour_3\\ca835232-2cd2-4927-afaf-a83f6bf8616e_errorExp.jpg"
     },
     {
       "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\reviews\\tour_7\\0738fc79-e012-4a56-b23c-3fe5626a549d_abd50993-9a64-4151-b66d-ccceff87c21e.jpg",
@@ -1619,6 +1623,10 @@
     {
       "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\439f50bb-a11a-4ca8-800d-1990f1d8de1a_imgDoiCatTuNham.jpg",
       "PackagePath": "staticwebassets\\uploads\\tours\\439f50bb-a11a-4ca8-800d-1990f1d8de1a_imgDoiCatTuNham.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\46d692e4-7a65-4148-b404-f405fd682863_errorCui.jpg",
+      "PackagePath": "staticwebassets\\uploads\\tours\\46d692e4-7a65-4148-b404-f405fd682863_errorCui.jpg"
     },
     {
       "Id": "C:\\Users\\admin\\OneDrive\\Desktop\\Demo_LTW\\DA_Web\\wwwroot\\uploads\\tours\\5.jpg",

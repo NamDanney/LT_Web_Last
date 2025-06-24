@@ -1,25 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Access Denied";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Từ chối truy cập";
+    Layout = "_Layout";
 }
 
-<div class="container text-center mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h1 class="display-1 text-danger">403</h1>
-                    <h2 class="card-title mb-4">Truy cập bị từ chối</h2>
-                    <p class="lead">
-                        Rất tiếc, tài khoản của bạn không có quyền truy cập vào tài nguyên này.
-                    </p>
-                    <p>
-                        Vui lòng liên hệ với quản trị viên nếu bạn tin rằng đây là một sự nhầm lẫn.
-                    </p>
-                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary mt-3">
-                        <i class="fas fa-home me-2"></i>Quay về Trang chủ
-                    </a>
+<link rel="stylesheet" href="~/styles/Auth/account.css" />
+
+<div class="auth-page">
+    <div class="auth-wrapper single-column">
+        <div class="auth-main">
+            <div class="auth-box text-center">
+                <div class="auth-header">
+                     <h1 class="text-danger">@ViewData["Title"]</h1>
+                    <p class="text-danger">Bạn không có quyền truy cập tài nguyên này.</p>
                 </div>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Quay về trang chủ</a>
             </div>
         </div>
     </div>

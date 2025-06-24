@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace DA_Web.DTOs.Auth
 {
@@ -9,6 +10,8 @@ namespace DA_Web.DTOs.Auth
         public string FullName { get; set; }
 
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
-        public string? Phone { get; set; }
+        public string Phone { get; set; }
+
+        public IFormFile? AvatarFile { get; set; }
     }
 }

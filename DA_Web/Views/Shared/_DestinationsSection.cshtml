@@ -37,7 +37,7 @@
                                 <img src="@imageUrl" alt="@location.Name" />
 
                                 <div class="destination-actions">
-                                    <a asp-controller="Locations" asp-action="Detail" asp-route-id="@location.Id" class="btn-circle">
+                                    <a asp-controller="Locations" asp-action="Details" asp-route-id="@location.Id" class="btn-circle">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                     <button class="btn-circle btn-favorite">
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <h3 class="destination-title">
-                                    <a asp-controller="Locations" asp-action="Detail" asp-route-id="@location.Id">@location.Name</a>
+                                    <a asp-controller="Locations" asp-action="Details" asp-route-id="@location.Id">@location.Name</a>
                                 </h3>
 
                                 <p class="destination-desc">
@@ -63,7 +63,7 @@
                                 </p>
 
                                 <div class="destination-footer">
-                                    <a asp-controller="Locations" asp-action="Detail" asp-route-id="@location.Id" class="btn-explore">
+                                    <a asp-controller="Locations" asp-action="Details" asp-route-id="@location.Id" class="btn-explore">
                                         <span>Khám phá ngay</span>
                                         <svg viewBox="0 0 24" width="24" height="24">
                                             <path d="M5 12h14M12 5l7 7-7 7"></path>

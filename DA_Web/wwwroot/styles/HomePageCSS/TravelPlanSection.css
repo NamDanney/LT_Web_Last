@@ -68,12 +68,12 @@
     line-height: 1.2;
 }
 
-.highlight {
+.travel-plan-section .highlight {
     color: var(--secondary);
     position: relative;
 }
 
-    .highlight::after {
+    .travel-plan-section .highlight::after {
         content: '';
         position: absolute;
         bottom: 5px;
@@ -300,6 +300,33 @@
         color: var(--text-dark);
     }
 
+    .btn-create-plan i {
+        transition: transform 0.3s ease;
+    }
+
+    .btn-create-plan:hover i {
+        transform: translateX(5px);
+    }
+
+.btn-explore-more {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+    .btn-explore-more:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px);
+        color: var(--text-light);
+    }
+
 /* Features */
 .travel-plan-features {
     display: flex;
@@ -324,7 +351,7 @@
         background: rgba(255, 255, 255, 0.15);
     }
 
-.feature-icon {
+.travel-plan-section .feature-icon {
     width: 70px;
     height: 70px;
     background: rgba(255, 255, 255, 0.1);
@@ -338,10 +365,10 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.plan-feature:hover .feature-icon {
+.travel-plan-section .plan-feature:hover .feature-icon {
     background: var(--secondary);
     color: var(--text-dark);
-    transform: rotateY(180deg);
+    transform: scale(1.1) rotate(15deg);
 }
 
 .plan-feature h4 {

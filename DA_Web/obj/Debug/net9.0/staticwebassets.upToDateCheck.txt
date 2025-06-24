@@ -1,6 +1,7 @@
 C:\Users\admin\OneDrive\Desktop\Demo_LTW\DA_Web\wwwroot\styles\Contact\ContactInfo.css
 C:\Users\admin\OneDrive\Desktop\Demo_LTW\DA_Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
 C:\Users\admin\OneDrive\Desktop\Demo_LTW\DA_Web\wwwroot\lib\jquery\dist\jquery.slim.min.js
+C:\Users\admin\OneDrive\Desktop\Demo_LTW\DA_Web\wwwroot\styles\Plans\Index.css
 C:\Users\admin\OneDrive\Desktop\Demo_LTW\DA_Web\wwwroot\js\site.js
 C:\Users\admin\OneDrive\Desktop\Demo_LTW\DA_Web\wwwroot\styles\Plans\MyPlans.css
 C:\Users\admin\OneDrive\Desktop\Demo_LTW\DA_Web\wwwroot\favicon.ico
@@ -201,6 +202,7 @@ wwwroot\styles\Location\WeatherSection.css
 wwwroot\styles\Plans\CreatePlans.css
 wwwroot\styles\Plans\DetailsPlans.css
 wwwroot\styles\Plans\EditPlans.css
+wwwroot\styles\Plans\Index.css
 wwwroot\styles\Plans\MyPlans.css
 wwwroot\styles\show\footer.css
 wwwroot\styles\show\header.css
@@ -422,8 +424,8 @@ wwwroot\uploads\review_images\review-2-1-1747806397814-782821251.jpg
 wwwroot\uploads\review_images\review-2-1-1747806397818-636060083.jpg
 wwwroot\uploads\review_images\review-2-2-1747799930974-168221229.jpg
 wwwroot\uploads\review_images\review-4-1-1749225395561-304387799.jpg
-wwwroot\uploads\reviews\tour_2\060e6d23-e195-4249-a035-84953897c64c_dao-cu-lao-mai-nha-phu-yen-768x680.jpg
-wwwroot\uploads\reviews\tour_2\87ce1f2f-7e73-4fb1-a389-49136a75bd90_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg
+wwwroot\uploads\reviews\tour_3\b0bed268-ee4c-404f-a1a6-701e76f6c0d4_errorCui.jpg
+wwwroot\uploads\reviews\tour_3\ca835232-2cd2-4927-afaf-a83f6bf8616e_errorExp.jpg
 wwwroot\uploads\reviews\tour_7\0738fc79-e012-4a56-b23c-3fe5626a549d_abd50993-9a64-4151-b66d-ccceff87c21e.jpg
 wwwroot\uploads\reviews\tour_7\190e9df8-0c76-4b39-b65f-96507ae59df2_kinh-nghiem-du-lich-cu-lao-mai-nha-0.jpg
 wwwroot\uploads\reviews\tour_7\19df1917-451b-4fcd-a849-77de28cdadeb_Thap-Nghinh-Phong-Phu-Yen.jpg
@@ -496,6 +498,7 @@ wwwroot\uploads\tours\3.jpg
 wwwroot\uploads\tours\4.jpg
 wwwroot\uploads\tours\419e5716-e972-466a-9a19-9b636aa3a0a5_imgThapNghinhPhong.jpg
 wwwroot\uploads\tours\439f50bb-a11a-4ca8-800d-1990f1d8de1a_imgDoiCatTuNham.jpg
+wwwroot\uploads\tours\46d692e4-7a65-4148-b404-f405fd682863_errorCui.jpg
 wwwroot\uploads\tours\5.jpg
 wwwroot\uploads\tours\55d4999d-b130-4cad-bfe8-81a89a1f75bc_imgThapNghinhPhong.jpg
 wwwroot\uploads\tours\6.jpg

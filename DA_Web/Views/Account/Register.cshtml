@@ -1,108 +1,72 @@
-﻿@{
+﻿@using DA_Web.DTOs.Auth
+@model RegisterDto
+@{
     ViewData["Title"] = "Đăng ký";
     Layout = "_Layout";
 }
 
 <link rel="stylesheet" href="~/styles/Auth/account.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<div class="auth-wrapper">
-    <div class="auth-side">
-        <div class="auth-side-content">
-            <h2>Tham gia cùng chúng tôi!</h2>
-            <p>Bắt đầu hành trình khám phá Phú Yên của bạn</p>
-        </div>
-    </div>
-
+<div class="auth-page">
+    <div class="auth-wrapper single-column">
     <div class="auth-main">
         <div class="auth-box">
             <div class="auth-header">
                 <a asp-controller="Home" asp-action="Index" class="auth-brand">
-                    <i class="bi bi-airplane-engines"></i>
+                        <i class="fas fa-plane-departure"></i>
                     <span>PHÚ YÊN</span>
                 </a>
-                <h1>Đăng ký tài khoản</h1>
-                <p>Điền thông tin dưới đây để tạo tài khoản</p>
-            </div>
-
-            <form id="registerForm" class="auth-form">
-                <div id="error-message" class="alert alert-danger" style="display: none;"></div>
-                <div id="success-message" class="alert alert-success" style="display: none;"></div>
-
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập</label>
-                    <div class="input-group">
-                        <i class="bi bi-person"></i>
-                        <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required />
-                    </div>
+                    <h1>Tạo tài khoản</h1>
+                    <p>Bắt đầu hành trình khám phá của bạn</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="fullName">Họ và tên</label>
-                    <div class="input-group">
-                        <i class="bi bi-person-badge"></i>
-                        <input type="text" id="fullName" name="fullName" placeholder="Nhập họ và tên" required />
-                    </div>
-                </div>
+                <form asp-controller="Account" asp-action="Register" method="post" class="auth-form">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
-                <div class="form-row">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label asp-for="Username">Tên đăng nhập</label>
                         <div class="input-group">
-                            <i class="bi bi-envelope"></i>
-                            <input type="email" id="email" name="email" placeholder="Nhập email" required />
+                            <i class="bi bi-person-fill icon"></i>
+                            <input asp-for="Username" class="form-control" placeholder="Tên đăng nhập" required />
                         </div>
+                        <span asp-validation-for="Username" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Số điện thoại</label>
+                        <label asp-for="FullName">Họ và tên</label>
                         <div class="input-group">
-                            <i class="bi bi-phone"></i>
-                            <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required />
+                            <i class="bi bi-person-vcard-fill icon"></i>
+                            <input asp-for="FullName" class="form-control" placeholder="Họ và tên" required />
                         </div>
-                    </div>
+                        <span asp-validation-for="FullName" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Mật khẩu</label>
+                        <label asp-for="Email">Email</label>
                     <div class="input-group">
-                        <i class="bi bi-lock"></i>
-                        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required />
-                        <button type="button" class="btn-toggle-password" data-target="password">
-                            <i class="bi bi-eye"></i>
-                        </button>
-                    </div>
+                            <i class="bi bi-envelope-fill icon"></i>
+                            <input asp-for="Email" class="form-control" placeholder="Địa chỉ email" required />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="confirmPassword">Xác nhận mật khẩu</label>
+                        <label asp-for="Password">Mật khẩu</label>
                     <div class="input-group">
-                        <i class="bi bi-lock"></i>
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu" required />
-                        <button type="button" class="btn-toggle-password" data-target="confirmPassword">
-                            <i class="bi bi-eye"></i>
-                        </button>
-                    </div>
+                            <i class="bi bi-lock-fill icon"></i>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Mật khẩu (ít nhất 6 ký tự)" required />
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
-                <div class="form-options">
-                    <label class="checkbox-wrapper">
-                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
-                        <span class="checkbox-label">Tôi đồng ý với <a href="#">điều khoản và điều kiện</a></span>
-                    </label>
-                </div>
-
-                <button type="submit" id="submit-button" class="btn-submit">
-                    <span id="submit-text">Đăng ký</span>
-                    <i id="submit-icon" class="bi bi-arrow-right"></i>
-                    <span id="loading-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
-                </button>
+                    <button type="submit" class="btn-submit">Đăng ký</button>
             </form>
 
             <p class="auth-redirect">
                 Đã có tài khoản?
-                <a asp-controller="Account" asp-action="Login"> Đăng nhập ngay</a>
+                    <a asp-controller="Account" asp-action="Login">Đăng nhập</a>
             </p>
+            </div>
         </div>
     </div>
 </div>
@@ -119,8 +83,11 @@
     </div>
 </div>
 
-
 @section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const registerForm = document.getElementById('registerForm');
@@ -149,13 +116,8 @@
                 e.preventDefault();
 
                 const password = document.getElementById('password').value;
-                const confirmPassword = document.getElementById('confirmPassword').value;
                 const agreeTerms = document.getElementById('agreeTerms').checked;
 
-                if (password !== confirmPassword) {
-                    showError('Mật khẩu xác nhận không khớp.');
-                    return;
-                }
                 if (!agreeTerms) {
                     showError('Bạn phải đồng ý với điều khoản và điều kiện.');
                     return;

@@ -86,5 +86,105 @@ namespace DA_Web.Controllers
                 return StatusCode(500, ApiResponse<object>.ErrorResult($"Lỗi máy chủ: {ex.Message}"));
             }
         }
+
+        [HttpGet("{reviewId}")]
+        [Authorize]
+        public async Task<IActionResult> GetReview(int reviewId)
+        {
+            try
+            {
+                var result = await _reviewService.GetReviewByIdAsync(reviewId);
+
+                if (!result.Success)
+                {
+                    return NotFound(result);
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi lấy review ID {ReviewId}", reviewId);
+                return StatusCode(500, ApiResponse<object>.ErrorResult($"Lỗi máy chủ: {ex.Message}"));
+            }
+        }
+
+        [HttpPut("{reviewId}")]
+        [Authorize]
+        public async Task<IActionResult> UpdateReview(int reviewId, [FromForm] CreateReviewDto reviewDto)
+        {
+            try
+            {
+                _logger.LogInformation("=== BẮT ĐẦU XỬ LÝ CẬP NHẬT REVIEW ===");
+                _logger.LogInformation("ReviewId: {ReviewId}, TourId: {TourId}, Rating: {Rating}", reviewId, reviewDto.TourId, reviewDto.Rating);
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogWarning("ModelState không hợp lệ");
+                    var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                                  .Select(e => e.ErrorMessage)
+                                                  .ToList();
+                    var combinedErrorMessage = string.Join(" | ", errors);
+                    return BadRequest(ApiResponse<object>.ErrorResult(combinedErrorMessage));
+                }
+
+                var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out var userId))
+                {
+                    _logger.LogWarning("Không thể lấy UserId từ Claims");
+                    return Unauthorized(ApiResponse<object>.ErrorResult("Không thể xác thực người dùng."));
+                }
+
+                var result = await _reviewService.UpdateReviewAsync(reviewId, reviewDto, userId);
+
+                if (!result.Success)
+                {
+                    _logger.LogWarning("Service trả về lỗi: {Message}", result.Message);
+                    return BadRequest(result);
+                }
+
+                _logger.LogInformation("=== HOÀN THÀNH CẬP NHẬT REVIEW THÀNH CÔNG ===");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "=== LỖI KHI CẬP NHẬT REVIEW ===");
+                return StatusCode(500, ApiResponse<object>.ErrorResult($"Lỗi máy chủ: {ex.Message}"));
+            }
+        }
+
+        [HttpDelete("{reviewId}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteReview(int reviewId)
+        {
+            try
+            {
+                _logger.LogInformation("=== BẮT ĐẦU XỬ LÝ XÓA REVIEW ===");
+                _logger.LogInformation("ReviewId: {ReviewId}", reviewId);
+
+                var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out var userId))
+                {
+                    _logger.LogWarning("Không thể lấy UserId từ Claims");
+                    return Unauthorized(ApiResponse<object>.ErrorResult("Không thể xác thực người dùng."));
+                }
+
+                var result = await _reviewService.DeleteReviewAsync(reviewId, userId);
+
+                if (!result.Success)
+                {
+                    _logger.LogWarning("Service trả về lỗi: {Message}", result.Message);
+                    return BadRequest(result);
+                }
+
+                _logger.LogInformation("=== HOÀN THÀNH XÓA REVIEW THÀNH CÔNG ===");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "=== LỖI KHI XÓA REVIEW ===");
+                return StatusCode(500, ApiResponse<object>.ErrorResult($"Lỗi máy chủ: {ex.Message}"));
+            }
+        }
     }
 }

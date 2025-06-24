@@ -72,6 +72,18 @@
     padding: 1rem 2rem;
     font-weight: 600;
     animation: fadeInUp 1s ease-out 0.6s both;
+    background-color: var(--secondary); /* Sử dụng biến màu secondary */
+    border-color: var(--secondary);
+    color: var(--text-light); /* Đổi màu chữ thành trắng để nổi bật */
+    transition: all 0.3s ease;
+}
+
+    .hero-btn:hover {
+        background-color: var(--secondary);
+        filter: brightness(90%); /* Làm màu tối hơn một chút khi hover */
+        border-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Dots Navigation */

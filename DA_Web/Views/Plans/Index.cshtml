@@ -1,195 +1,86 @@
 ﻿@model IEnumerable<DA_Web.Models.Tour>
+@using System.Security.Claims
 @{
-    ViewData["Title"] = "Lập kế hoạch";
+    ViewData["Title"] = "Lịch Trình";
     int currentPage = (int)ViewData["CurrentPage"];
     int totalPages = (int)ViewData["TotalPages"];
+    var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    int? userId = !string.IsNullOrEmpty(userIdString) ? int.Parse(userIdString) : (int?)null;
 }
 
-<style>
-    .plan-page {
-        padding: 60px 0;
-        background-color: #f8f9fa;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="~/styles/Plans/Index.css" />
 
-    .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 1rem;
-    }
-
-    .section-subtitle {
-        font-size: 1.1rem;
-        color: #6c757d;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    .plan-actions {
-        margin: 2rem 0;
-    }
-
-    .tour-card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        height: 100%;
-        margin-bottom: 20px;
-    }
-
-        .tour-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-    .tour-image {
-        height: 200px;
-        overflow: hidden;
-    }
-
-        .tour-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px 8px 0 0;
-        }
-
-    .tour-duration {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-    }
-
-    .tour-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #333;
-        min-height: 50px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .author-avatar {
-        position: relative;
-    }
-
-    .author-initial {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-weight: bold;
-        color: white;
-        font-size: 0.7rem;
-    }
-
-    .author-name {
-        font-size: 0.9rem;
-        color: #666;
-    }
-
-    .tour-location, .tour-date {
-        font-size: 0.85rem;
-        color: #777;
-    }
-
-    .pagination .page-link {
-        border-radius: 4px;
-        margin: 0 3px;
-    }
-
-    .pagination .page-item.active .page-link {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-</style>
-
-<section class="plan-page">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h1 class="section-title">Khám Phá Lịch Trình Phú Yên</h1>
-            <p class="section-subtitle">Những chuyến đi được cộng đồng chia sẻ, đầy kỷ niệm thú vị và đang chờ bạn.</p>
-
-            <!-- Chỉ cần thay đổi phần plan-actions trong Index.cshtml -->
-            <div class="plan-actions mt-4">
-                <a asp-controller="Plans" asp-action="Create" class="btn btn-primary rounded-pill me-2">
-                    <i class="bi bi-calendar-plus"></i> Tạo Lịch Trình Mới
+<div class="plans-container">
+    <div class="plans-header">
+        <h1>Lịch Trình Cộng Đồng</h1>
+        <div class="plans-actions">
+            <a asp-controller="Plans" asp-action="MyPlans" class="btn-plan my-plans-btn">
+                <i class="bi bi-bookmark-star"></i> Kế hoạch của tôi
                 </a>
-                <a asp-controller="Plans" asp-action="MyPlans" class="btn btn-outline-primary rounded-pill">
-                    <i class="bi bi-list-check"></i> Lịch Trình Của Tôi
+            <a asp-controller="Plans" asp-action="Create" class="btn-plan create-plan-btn">
+                <i class="bi bi-plus-lg"></i> Tạo kế hoạch mới
                 </a>
             </div>
         </div>
 
-        <div class="row g-4">
             @if (Model != null && Model.Any())
             {
-                foreach (var tour in Model)
+        <div class="plans-grid">
+            @foreach (var tour in Model)
                 {
-                    <div class="col-md-6 col-lg-4">
-                        <div class="tour-card">
-                            <div class="tour-image position-relative">
-                                <img src="@(!string.IsNullOrEmpty(tour.Image) ? tour.Image : "/images/default-tour.jpg")"
-                                     alt="@tour.Destination" class="img-fluid rounded-top">
-                                <div class="tour-duration">
+                var cardClass = (tour.UserId == userId) ? "plan-card--mine" : "";
+                <div class="plan-card @cardClass">
+                    <div class="plan-card__image-container">
+                        <img src="@(!string.IsNullOrEmpty(tour.Image) ? tour.Image : "/images/default-tour.jpg")" alt="Ảnh của @tour.Destination" class="plan-card__image">
+                        <div class="plan-card__image-overlay"></div>
+                        <div class="plan-card__duration">
                                     <i class="bi bi-clock"></i> @tour.Duration
                                 </div>
-                            </div>
-                            <div class="tour-content p-3">
-                                <div class="author-info d-flex align-items-center mb-2">
-                                    <div class="author-avatar me-2">
-                                        @if (tour.User != null)
-                                        {
-                                            <img src="@(!string.IsNullOrEmpty(tour.User.Avatar) ? tour.User.Avatar : "/images/user-avatar.png")"
-                                                 alt="@tour.User.FullName" class="rounded-circle" style="width: 30px; height: 30px;">
-                                        }
-                                        else
-                                        {
-                                            <img src="/images/admin-avatar.png" alt="Administrator"
-                                                 class="rounded-circle" style="width: 30px; height: 30px;">
-                                        }
-                                    </div>
-                                    <div class="author-name">
-                                        @(tour.User?.FullName ?? "Administrator")
-                                    </div>
-                                </div>
-                                <h3 class="tour-title mb-2">@tour.Destination</h3>
-                                <div class="tour-location mb-3">
-                                    <i class="bi bi-geo-alt"></i> Khởi hành từ: @tour.DepartureFrom
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="tour-date">
-                                        <i class="bi bi-calendar-date"></i> Đăng ngày: @tour.CreatedAt.ToString("dd/MM/yyyy")
-                                    </div>
-                                    <a asp-controller="Plans" asp-action="Details" asp-route-id="@tour.Id" class="btn btn-sm btn-outline-primary rounded-pill">
-                                        Xem chi tiết <i class="bi bi-arrow-right"></i>
-                                    </a>
-                                    @* <a asp-controller="Plans" asp-action="Details" asp-route-id="@tour.Id">Xem chi tiết</a> *@
-                                    @* <a href="/plans/details/@tour.Id">Xem chi tiết</a> *@
-                                </div>
-                            </div>
+                        <div class="plan-card__header">
+                            <h3 class="plan-card__title">@tour.Destination</h3>
                         </div>
                     </div>
-                }
-            }
-            else
-            {
-                <div class="col-12 text-center py-5">
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle me-2"></i>
-                        Hiện tại không có tour nào. Hãy quay lại sau!
+                    
+                    <div class="plan-card__content">
+                         <div class="plan-card__details">
+                            <div class="plan-card__detail-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>Khởi hành: <strong>@tour.DepartureFrom</strong></span>
+                            </div>
+                            <div class="plan-card__detail-item">
+                                <i class="bi bi-calendar2-event"></i>
+                                <span>Đăng ngày: <strong>@tour.CreatedAt.ToString("dd/MM/yyyy")</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="plan-card__footer">
+                            <a href="#" class="plan-card__user">
+                                <img src="@(tour.User?.Avatar ?? "/uploads/avatars/default_avatar.png")" alt="User Avatar" class="plan-card__user-avatar">
+                                <span class="plan-card__user-name">@(tour.User?.FullName ?? "Administrator")</span>
+                            </a>
+                            <a asp-controller="Plans" asp-action="Details" asp-route-id="@tour.Id" class="details-btn">Chi Tiết</a>
+                    </div>
                     </div>
                 </div>
             }
         </div>
+    }
+    else
+    {
+        <div class="no-plans-container">
+            <i class="bi bi-cloud-drizzle"></i>
+            <p>Chưa có lịch trình nào được chia sẻ. <br> Hãy là người đầu tiên tạo một kế hoạch và truyền cảm hứng!</p>
+            <div class="plans-actions">
+                 <a asp-controller="Plans" asp-action="Create" class="btn-plan create-plan-btn">
+                    <i class="bi bi-plus-lg"></i> Tạo kế hoạch mới
+                </a>
+            </div>
+        </div>
+    }
 
         @if (totalPages > 1)
         {
@@ -215,7 +106,6 @@
             </nav>
         }
     </div>
-</section>
 
 @section Scripts {
     <script>

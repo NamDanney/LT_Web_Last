@@ -75,5 +75,28 @@ namespace DA_Web.Services.Implementations
                 }
             }
         }
+
+        public async Task DeleteFileAsync(string relativeFilePath)
+        {
+            if (string.IsNullOrEmpty(relativeFilePath)) return;
+
+            var webRootPath = _webHostEnvironment.WebRootPath;
+            var fullFilePath = Path.Combine(webRootPath, relativeFilePath.TrimStart('/'));
+
+            if (File.Exists(fullFilePath))
+            {
+                try
+                {
+                    // Sử dụng Task.Run để wrap synchronous File.Delete thành async
+                    await Task.Run(() => File.Delete(fullFilePath));
+                }
+                catch (Exception ex)
+                {
+                    // Ghi lại lỗi (log error) ở đây nếu cần
+                    Console.WriteLine($"Error deleting file: {ex.Message}");
+                    throw; // Re-throw để service layer có thể handle
+                }
+            }
+        }
     }
 }
